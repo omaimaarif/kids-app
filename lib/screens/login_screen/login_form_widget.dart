@@ -26,9 +26,7 @@ class LoginForm extends StatelessWidget {
                   prefixIcon: Icon(Icons.person_outline),
                   labelText: "Email",
                   hintText: "Enter your email",
-                  contentPadding: EdgeInsets.symmetric(vertical: 14.0),
-                  border: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(25.0)),
+                  contentPadding: EdgeInsets.symmetric(vertical: 9.0),
                 ),
               ),
               const SizedBox(
@@ -43,7 +41,7 @@ class LoginForm extends StatelessWidget {
                   labelText: "Password",
                   hintText: "Enter your password",
                   contentPadding: EdgeInsets.symmetric(vertical: 14.0),
-                  border: OutlineInputBorder(borderRadius: BorderRadius.circular(25.0)),
+               //   border: OutlineInputBorder(borderRadius: BorderRadius.circular(25.0)),
                   suffixIcon: IconButton(
                       onPressed: null,
                       icon: Icon(Icons.remove_red_eye_sharp) ),
@@ -93,17 +91,17 @@ class LoginForm extends StatelessWidget {
                 child: ElevatedButton(
                     onPressed: (){},
                     style: ElevatedButton.styleFrom(
-                      primary: Color(0xCBA5C2C2),
+                      primary: Color(0xDF5D7A7C),
                       foregroundColor: Colors.white,
                       side:  BorderSide(color: Color(0xFFA5C2C2)),
                       shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(20.0)
                       ),
-                      fixedSize: Size.fromHeight(40)
+                      fixedSize: Size.fromHeight(45)
                     ),
                     child: Text(tLogin.toUpperCase())),
               )
-              ,SizedBox(height: 5,)
+              ,SizedBox(height: 2,)
             ],
           ),
         ));

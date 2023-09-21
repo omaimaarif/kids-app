@@ -15,17 +15,17 @@ List<UnbordingContent> contents = [
     title: "Hi, I'm Pippa!",
     image: 'lib/assets/woolly-panda-1.png',
     discription:
-    " I'm here to help you breeze through the activities\n we'll explore together",
+    " Let's scroll across to meet our other friends",
   ),
   UnbordingContent(
     title: "And I'm Polar",
     image: 'lib/assets/woolly-at-the-sea.png',
-    discription: "and this is my friend with me",
+    discription: "I have a boat full of colorful ideas",
   ),
   UnbordingContent(
-    title: 'Welcome to our midst! ',
+    title: 'Finally, here you are! ',
     image: 'lib/assets/woolly-pearl.png',
     discription:
-    "Let's get started, and you'll discover my mission here",
+    "I'm Max, let's start our adventure together",
   ),
 ];

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:get/get_core/src/get_main.dart';
+import 'package:google_fonts/google_fonts.dart';
 import '../conistants/data.dart';
 import 'login_screen/login_screen.dart';
 
@@ -36,20 +37,26 @@ class _OnBordingScreenState extends State<OnBordingScreen> {
       body: SafeArea(
         child: Column(
           children: [
-            const SizedBox(height: 30,),
-            const Padding(
-              padding: EdgeInsets.symmetric(horizontal: 20),
+            const SizedBox(height: 20,),
+             Padding(
+              padding: EdgeInsets.symmetric(horizontal: 10),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.end,
                 children: [
-                  Text(
-                    "Skip",
-                    style: TextStyle(
-                      fontWeight: FontWeight.bold,
-                        fontFamily: "Gilroy-Bold",
-                        fontSize: 20.0,
-                      color:Color(0xFF688382) ,
-                    ),
+                  TextButton(
+                   onPressed: () {
+                     Navigator.push(
+                       context,
+                       MaterialPageRoute(builder: (context) => LoginScreen()),
+                     );
+                   },
+                   child: Text(
+                     "Skip", style: GoogleFonts.akshar(
+                     fontWeight: FontWeight.normal,
+                     fontSize: 18.0,
+                     color:Color(0xFF688382) ,
+                   ),
+                   )
                   ),
                 ],
               ),
@@ -75,21 +82,19 @@ class _OnBordingScreenState extends State<OnBordingScreen> {
                         Text(
                           contents[index].title,
                           textAlign: TextAlign.center,
-                          style: const TextStyle(
-                            fontSize: 28.0,
+                          style:  GoogleFonts.courgette(
+                            fontSize: 30.0,
                             color:Color(0xFF9A5F42) ,
-                            fontFamily: "Gilroy-Bold",
                             fontWeight: FontWeight.bold
                           ),
                         ),
-                        const SizedBox(height: 15,),
+                         SizedBox(height: 10,),
                         Text(
                           contents[index].discription,
                           textAlign: TextAlign.center,
-                          style: const TextStyle(
+                          style:  GoogleFonts.akshar(
                             fontSize: 16,
                             color: Colors.black26,
-                            fontFamily: "Gilroy-Regular",
                             fontWeight: FontWeight.w500,
                           ),
                         ),

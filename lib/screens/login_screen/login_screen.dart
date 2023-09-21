@@ -1,4 +1,6 @@
+import 'package:another_final_kids_app/screens/sign_up/sign_up.dart';
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import '../../conistants/sizes.dart';
 import 'login_form_widget.dart';
 
@@ -10,12 +12,12 @@ class LoginScreen extends StatelessWidget {
     return Scaffold(
       body: Container(
         decoration: BoxDecoration(
-        color: Color(0xFFE9EDEE)
+        color: Color(0x3ADDE7E7)
         ),
         child: Column(
           //crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-           SizedBox(height: 20),
+           SizedBox(height: 5),
            Row(
              children: [
                Image(image: AssetImage("lib/assets/heart.png"),
@@ -25,7 +27,7 @@ class LoginScreen extends StatelessWidget {
                  width: 150,height: 150,alignment: Alignment.bottomLeft,),
              ],
            ),
-            SizedBox(height: 20,),
+            SizedBox(height: 10,),
             Expanded(
               child: Container(
                 decoration: BoxDecoration(
@@ -38,28 +40,31 @@ class LoginScreen extends StatelessWidget {
                 padding: EdgeInsets.only(top: 30),
                 child: SingleChildScrollView(
                   child: Padding(
-                    padding: EdgeInsets.all(20),
+                    padding: EdgeInsets.all(35),
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        Text("Hello again!", style: TextStyle(
-                          color: Color(0xFFA5C2C2) ,
-                            fontWeight: FontWeight.bold,fontSize: 35)),
-                        SizedBox(height: 30,)
+                        Text("Hello again!", style: GoogleFonts.courgette(
+                                color: Color(0x385D7A7C) ,
+                                fontWeight: FontWeight.bold,
+                            fontSize: 35)),
+                        SizedBox(height: 25,)
                         ,LoginForm(),
                         Column(
                           crossAxisAlignment: CrossAxisAlignment.center,
                           children: [
-                            Text("Or"),
+                            Text("Or", style:TextStyle(
+                              color: Color(0x9B28292B)
+                            ),),
                             SizedBox(
                               width: double.infinity,
                               child: OutlinedButton.icon(
                                 style: OutlinedButton.styleFrom(
-                                  side: BorderSide(color: Color(0xFFA5C2C2)),
+                                  side: BorderSide(color: Color(0xDF5D7A7C)),
                                   shape: RoundedRectangleBorder(
                                     borderRadius: BorderRadius.circular(20),
                                   ),
-                                    fixedSize: Size.fromHeight(40)
+                                    fixedSize: Size.fromHeight(45)
                                 ),
                                 icon: Image(
                                   image: AssetImage("lib/assets/google.png"),
@@ -70,10 +75,15 @@ class LoginScreen extends StatelessWidget {
                               ),
                             ),
                             Padding(
-                              padding: EdgeInsets.only(bottom: 19.0),
+                              padding: EdgeInsets.only(bottom: 10.0),
                             ),
                             TextButton(
-                              onPressed: () {},
+                              onPressed: () {
+                                Navigator.push(
+                                  context,
+                                  MaterialPageRoute(builder: (context) => SignUpScreen()),
+                                );
+                              },
                               child: Text.rich(
                                 TextSpan(
                                   text: "Don't have an account?",
