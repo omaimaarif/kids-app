@@ -59,23 +59,27 @@ class LoginForm extends StatelessWidget {
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
                               Text("Make selection!", style: Theme.of(context).textTheme.headlineMedium,),
-                              Text("any thing",style: Theme.of(context).textTheme.bodyMedium,),
+                              Text("Choose a recovery method for your account",style: Theme.of(context).textTheme.bodyMedium,),
                               SizedBox(height: 30.0,),
                               ForgetPasswordBtnWidget(
                                 btnIcon:Icons.mail_outline_rounded ,
-                                onTap:(){
+                                onTap: () {
                                   Navigator.pop(context);
-                                  Get.to(()=> ForgetPasswordMailScreen());}
-                                , title: "Make selection",
-                                subTitle:"Reset via E-mail verification" ,
+                                  Navigator.push(
+                                    context,
+                                    MaterialPageRoute(builder: (context) => ForgetPasswordMailScreen()),
+                                  );
+                                }
+                                , title: "Recover via Email",
+                                subTitle:"Recover Password via Email" ,
                               ),
                               SizedBox(height: 30.0,),
 
                               ForgetPasswordBtnWidget(
                                 btnIcon:Icons.mobile_friendly_rounded ,
                                 onTap:(){} ,
-                                title: "Phone no",
-                                subTitle:"Reset via phone verification" ,
+                                title: "Recover via Phone Number",
+                                subTitle:"Recover Password via Phone Number" ,
                               )
 
                             ],

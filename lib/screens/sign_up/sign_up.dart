@@ -1,10 +1,12 @@
+import 'package:another_final_kids_app/home_page/home_screen.dart';
 import 'package:another_final_kids_app/screens/login_screen/login_screen.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import '../login_screen/login_form_widget.dart';
 
 class SignUpScreen extends StatelessWidget {
-  const SignUpScreen({super.key});
+   SignUpScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -75,7 +77,12 @@ class SignUpScreen extends StatelessWidget {
                       SizedBox(
                         width: double.infinity,
                         child: ElevatedButton(
-                            onPressed: (){},
+                            onPressed:(){
+                              Navigator.push(
+                                context,
+                                MaterialPageRoute(builder: (context) => HomePageScreen()),
+                              );
+                            },
                             style: ElevatedButton.styleFrom(
                                 primary: Color(0xDF5D7A7C),
                                 foregroundColor: Colors.white,
