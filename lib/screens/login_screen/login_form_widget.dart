@@ -1,3 +1,5 @@
+
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -5,6 +7,8 @@ import '../../conistants/sizes.dart';
 import '../../conistants/text_string.dart';
 import '../forget_password/forget_password_btn_widget.dart';
 import '../forget_password/forget_password_mail.dart';
+import 'package:get/get.dart';
+import 'package:awesome_dialog/awesome_dialog.dart';
 
 class LoginForm extends StatelessWidget {
   const LoginForm({
@@ -13,6 +17,10 @@ class LoginForm extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final TextEditingController email_login = TextEditingController();
+    final TextEditingController password_login  = TextEditingController();
+
+    GlobalKey<FormState> formState=GlobalKey<FormState>();
     return Form(
         child: Container(
           padding: EdgeInsets.symmetric(vertical: 0.0),
@@ -20,6 +28,7 @@ class LoginForm extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               TextFormField(
+                controller: email_login,
                 decoration: InputDecoration(
                   filled: true,
                   fillColor: Color(0x8BFFFFFF),
@@ -33,6 +42,7 @@ class LoginForm extends StatelessWidget {
                 height: 15.0,
               ),
               TextFormField(
+                controller: password_login,
                 maxLength: 15,
                 decoration: InputDecoration(
                   filled: true,
@@ -93,7 +103,23 @@ class LoginForm extends StatelessWidget {
               SizedBox(
                 width: double.infinity,
                 child: ElevatedButton(
-                    onPressed: (){},
+                    onPressed: () async {
+                           try {
+                             final credential = await FirebaseAuth.instance.signInWithEmailAndPassword(
+                                 email: email_login.text,
+                                 password: password_login.text
+                             );
+                             Navigator.of(context).pushReplacementNamed("HomePage");
+                           } on FirebaseAuthException catch (e) {
+                             if (e.code == 'user-not-found') {
+
+                               Get.defaultDialog();
+                             } else if (e.code == 'wrong-password') {
+                               Get.defaultDialog();
+                             }
+                           }
+
+                    },
                     style: ElevatedButton.styleFrom(
                       primary: Color(0xDF5D7A7C),
                       foregroundColor: Colors.white,

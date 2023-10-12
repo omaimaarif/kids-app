@@ -2,11 +2,17 @@ import 'package:another_final_kids_app/screens/sign_up/sign_up.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import '../../conistants/sizes.dart';
+import 'package:get/get.dart';
 import 'login_form_widget.dart';
 
-class LoginScreen extends StatelessWidget {
+class LoginScreen extends StatefulWidget {
   const LoginScreen({Key? key});
 
+  @override
+  State<LoginScreen> createState() => _LoginScreenState();
+}
+
+class _LoginScreenState extends State<LoginScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -95,10 +101,7 @@ class LoginScreen extends StatelessWidget {
 
                     TextButton(
                       onPressed: () {
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(builder: (context) => SignUpScreen()),
-                        );
+                        Navigator.of(context).pushReplacementNamed("signup");
                       },
                     child: Text.rich(
                       TextSpan(

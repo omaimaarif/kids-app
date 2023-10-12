@@ -1,34 +1,51 @@
-import 'package:another_final_kids_app/home_page/home_screen.dart';
+import 'package:another_final_kids_app/screens/home_page/home_screen.dart';
 import 'package:another_final_kids_app/screens/login_screen/login_screen.dart';
 import 'package:another_final_kids_app/screens/on_bording_screen.dart';
 import 'package:another_final_kids_app/screens/sign_up/sign_up.dart';
+import 'package:another_final_kids_app/side_menu/side_menu_screen.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';
+import 'package:get/get.dart';
 
-
-
-void main() {
-
-  runApp(const MyApp());
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp();
+  runApp(MyApp());
 }
 
 class MyApp extends StatefulWidget {
   const MyApp({Key? key}) : super(key: key);
 
   @override
-  _MyAppState createState() => _MyAppState();
+  State<MyApp> createState() => _MyAppState();
 }
 
 class _MyAppState extends State<MyApp> {
+
   @override
-
-
+  void initState() {
+    FirebaseAuth.instance
+        .authStateChanges()
+        .listen((User? user) {
+      if (user == null) {
+        print('************* User is currently signed out!');
+      } else {
+        print('************* User is signed in!');
+      }
+    });
+    super.initState();
+  }
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return GetMaterialApp(
       debugShowCheckedModeBanner: false,
-      home: OnBordingScreen(),
+      home:FirebaseAuth.instance.currentUser==null?OnBordingScreen(): HomeScreen(),
+      routes: {"signup": (context)  => SignUpScreen(),
+        "login": (context)  => LoginScreen(),
+        "sideMenu":(context) => SideMenu(),
+        "HomePage": (context)=> HomeScreen(),},
     );
   }
 }
+//FirebaseAuth.instance.currentUser==null?OnBordingScreen(): HomePageScreen(),
