@@ -22,6 +22,38 @@ class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        title: RichText(
+          text: TextSpan(
+            children: [
+              TextSpan(
+                text: "D", style: TextStyle(
+                fontSize: 30,
+                fontWeight: FontWeight.bold,color: Colors.black87),
+              ),
+              TextSpan(text: "iscover",
+                style: TextStyle(
+                  fontSize: 30,
+                  fontWeight: FontWeight.normal,color: Colors.black87
+                ),)
+            ]
+          ),
+        ),
+        backgroundColor: Colors.transparent,
+        elevation: 0,
+        leading: Builder(
+          builder: (BuildContext context){
+            return IconButton(
+              color: Colors.grey,
+                icon: Icon(Icons.menu),
+            onPressed: (){
+                  Scaffold.of(context).openDrawer();
+            },
+              tooltip: MaterialLocalizations.of(context).openAppDrawerTooltip,
+            );
+          },
+        ),
+      ),
       drawer: Drawer(
       child: SideMenu(),
       ),
@@ -36,30 +68,6 @@ class _HomeScreenState extends State<HomeScreen> {
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    Row(
-                      children: [
-                        SizedBox(width: 60,
-                        ),
-                        Text("D", style: TextStyle(fontSize: 30
-                            ,fontWeight: FontWeight.bold),),
-                        Text("iscover", style: TextStyle(fontSize:30
-                        ),),
-                      ],
-                    ),
-                    //Plus buttons
-                    Container(
-
-                        decoration: BoxDecoration(shape: BoxShape.circle,
-                            color: Colors.grey[200],
-                            boxShadow: [BoxShadow(
-                                color: Colors.black12,
-                                offset: Offset(0,3),
-                                blurRadius: 8
-                            )]),
-                        padding: EdgeInsets.all(4),
-                        child: IconButton(
-                          onPressed: () { },
-                        icon: Image(image: AssetImage("lib/assets/user_profile.png"),),)),
                   ],
                 ),
               ),
