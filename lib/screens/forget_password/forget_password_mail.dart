@@ -1,11 +1,14 @@
 
+import 'package:awesome_dialog/awesome_dialog.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 class ForgetPasswordMailScreen extends StatelessWidget {
-  const ForgetPasswordMailScreen({super.key});
-
+   ForgetPasswordMailScreen({super.key, required this.email_forget});
+  final String email_forget;
   @override
   Widget build(BuildContext context) {
+
     return Scaffold(
       body: SingleChildScrollView(
         child: Container(
@@ -29,7 +32,7 @@ class ForgetPasswordMailScreen extends StatelessWidget {
 
                   TextFormField(
                     decoration: InputDecoration(
-                      label: Text("Email"),
+                      label: Text(email_forget),
                       hintText: "Email",
                       prefixIcon: Icon(Icons.mail_outline_rounded),
                     ),
@@ -37,7 +40,33 @@ class ForgetPasswordMailScreen extends StatelessWidget {
                   SizedBox(height: 20),
                   SizedBox(
                     width: double.infinity,
-                    child: ElevatedButton(onPressed: (){},
+                    child: ElevatedButton(onPressed: ()async {
+
+                      if(email_forget==""){
+                        AwesomeDialog(
+                          context: context,
+                          dialogType: DialogType.warning,
+                          animType: AnimType.rightSlide,
+                          title: 'Something wrong!',
+                          desc: 'Please enter your email',
+                        ).show();
+                        return;
+                      }
+                      try{
+                        await FirebaseAuth.instance.sendPasswordResetEmail(
+                            email:email_forget);
+
+                        AwesomeDialog(
+                          context: context,
+                          dialogType: DialogType.success,
+                          animType: AnimType.rightSlide,
+                          title: 'Done!',
+                          desc: 'Your request is being processed, Please check your email',
+                        ).show();
+                      }catch(e){
+                        print(e);
+                      }
+                    },
                       child: Text("Send request"),
 
                     ),

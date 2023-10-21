@@ -4,16 +4,20 @@ class MyListTile extends StatelessWidget {
   final String ImageIconPath;
   final String tileName;
   final String subtile;
-  const MyListTile({super.key,
+  final double height_tile;
+  final double height_image;
+  final void Function()? pressedButton;
+const MyListTile({super.key,
   required this.ImageIconPath,
     required this.subtile,
-  required this.tileName});
+  required this.tileName,
+    this.pressedButton, required this.height_tile, required this.height_image});
 
   @override
   Widget build(BuildContext context) {
     return
       Container(
-               height: 100,
+               height: height_tile,
               decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(12),
                   color: Colors.grey[100]
@@ -24,7 +28,7 @@ class MyListTile extends StatelessWidget {
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
-                      Image(image: AssetImage(ImageIconPath),height: 50,
+                      Image(image: AssetImage(ImageIconPath),height: height_image,
                       ),
                      // SizedBox(width: 30,),
 
@@ -39,8 +43,8 @@ class MyListTile extends StatelessWidget {
                         ],
                       ),
                      // SizedBox(width: 55,),
-                      IconButton(onPressed: (){},
-                          icon: Icon(Icons.arrow_forward_ios))
+                      IconButton(onPressed: pressedButton,
+                          icon: Icon(Icons.arrow_forward_ios)),
                     ],
                   ),
 

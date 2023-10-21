@@ -1,9 +1,13 @@
+import 'package:another_final_kids_app/screens/activity/activity_screen.dart';
+import 'package:another_final_kids_app/screens/activity/dragDrop.dart';
+import 'package:another_final_kids_app/screens/activity/welcome_to_activity.dart';
 import 'package:another_final_kids_app/screens/home_page/home_screen.dart';
 import 'package:another_final_kids_app/screens/login_screen/login_screen.dart';
 import 'package:another_final_kids_app/screens/on_bording_screen.dart';
+import 'package:another_final_kids_app/screens/side_menu/side_menu_screen.dart';
 import 'package:another_final_kids_app/screens/sign_up/sign_up.dart';
-import 'package:another_final_kids_app/side_menu/side_menu_screen.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:get/get.dart';
@@ -44,7 +48,11 @@ class _MyAppState extends State<MyApp> {
       routes: {"signup": (context)  => SignUpScreen(),
         "login": (context)  => LoginScreen(),
         "sideMenu":(context) => SideMenu(),
-        "HomePage": (context)=> HomeScreen(),},
+        "HomePage": (context)=> HomeScreen(),
+        "welcome_to_activity": (context) => WelcomToActivity(),
+         "activity": (context) => activityScreen(),
+      },
+
     );
   }
 }

@@ -12,7 +12,20 @@
           "package_name": "com.example.another_final_kids_app"
         }
       },
-      "oauth_client": [],
+      "oauth_client": [
+        {
+          "client_id": "637062553876-83t1l7d57arip4tt4io7jan6molsujam.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.another_final_kids_app",
+            "certificate_hash": "e8609a13eafb7b67b7649ded8963f820141a6eb7"
+          }
+        },
+        {
+          "client_id": "637062553876-esfhnbk4cvr87dik86rk20vbqpsibn7e.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
       "api_key": [
         {
           "current_key": "AIzaSyBPSGtDtYR3k473oJwhiHcmPgsY2KlJmjo"
@@ -20,7 +33,12 @@
       ],
       "services": {
         "appinvite_service": {
-          "other_platform_oauth_client": []
+          "other_platform_oauth_client": [
+            {
+              "client_id": "637062553876-esfhnbk4cvr87dik86rk20vbqpsibn7e.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
         }
       }
     }

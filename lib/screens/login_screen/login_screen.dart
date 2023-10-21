@@ -1,6 +1,8 @@
 import 'package:another_final_kids_app/screens/sign_up/sign_up.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:google_sign_in/google_sign_in.dart';
 import '../../conistants/sizes.dart';
 import 'package:get/get.dart';
 import 'login_form_widget.dart';
@@ -13,6 +15,26 @@ class LoginScreen extends StatefulWidget {
 }
 
 class _LoginScreenState extends State<LoginScreen> {
+
+  Future  signInWithGoogle() async {
+    // Trigger the authentication flow
+    final GoogleSignInAccount? googleUser = await GoogleSignIn().signIn();
+  if(googleUser== null){
+    return;
+  }
+    // Obtain the auth details from the request
+    final GoogleSignInAuthentication? googleAuth = await googleUser?.authentication;
+
+    // Create a new credential
+    final credential = GoogleAuthProvider.credential(
+      accessToken: googleAuth?.accessToken,
+      idToken: googleAuth?.idToken,
+    );
+
+    // Once signed in, return the UserCredential
+     await FirebaseAuth.instance.signInWithCredential(credential);
+    Navigator.of(context).pushNamedAndRemoveUntil("HomePage", (route) => false);
+  }
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -70,7 +92,10 @@ class _LoginScreenState extends State<LoginScreen> {
                         SizedBox(
                           height: 25,
                         ),
-                        LoginForm(),
+                        LoginForm(validator: (val){if(val==""){
+                            return"This field cannot be left blank";
+                          }
+                        }),
                         Column(
                           crossAxisAlignment: CrossAxisAlignment.center,
                           children: [
@@ -91,7 +116,11 @@ class _LoginScreenState extends State<LoginScreen> {
                                   image: AssetImage("lib/assets/google.png"),
                                   width: 20.0,
                                 ),
-                                onPressed: () {},
+                                onPressed: () {
+                                  signInWithGoogle();
+
+
+                                },
                                 label: Text("Sign in with Google"),
                               ),
                             ),

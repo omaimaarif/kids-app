@@ -1,9 +1,11 @@
-import 'package:another_final_kids_app/side_menu/info_side_menu.dart';
-import 'package:another_final_kids_app/side_menu/models/rive_assets.dart';
-import 'package:another_final_kids_app/side_menu/side_menu_tile.dart';
+import 'package:another_final_kids_app/screens/side_menu/side_menu_tile.dart';
+
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:rive/rive.dart';
+
+import 'info_side_menu.dart';
+import 'models/rive_assets.dart';
 
 class SideMenu extends StatefulWidget {
   const SideMenu({super.key});

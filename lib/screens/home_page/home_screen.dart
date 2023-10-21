@@ -1,11 +1,14 @@
 import 'package:another_final_kids_app/buttons/my_buttons_homepage.dart';
-import 'package:another_final_kids_app/side_menu/side_menu_screen.dart';
+
 import 'package:another_final_kids_app/tile/my_list_tile.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:google_sign_in/google_sign_in.dart';
 import 'package:rive/rive.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 import '../../cards/home_page_card.dart';
+import '../side_menu/side_menu_screen.dart';
 
 class HomeScreen extends StatefulWidget {
    HomeScreen({super.key,});
@@ -23,6 +26,15 @@ class _HomeScreenState extends State<HomeScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        actions: [
+          IconButton(onPressed: ()async {
+            GoogleSignIn googleSignIn = GoogleSignIn();
+            googleSignIn.disconnect();
+            await FirebaseAuth.instance.signOut();
+            Navigator.of(context).pushNamedAndRemoveUntil("login", (route) => false);
+          },
+                icon: Icon(Icons.exit_to_app),color: Colors.black87,)
+        ],
         title: RichText(
           text: TextSpan(
             children: [
@@ -110,10 +122,19 @@ class _HomeScreenState extends State<HomeScreen> {
                     "Categories",style: TextStyle(fontSize: 20,fontWeight: FontWeight.bold,
                   color: Colors.grey),),
                   SizedBox(height: 10,),
-                  MyListTile(ImageIconPath: "lib/assets/icons/puzzle.png",
-                    tileName: "Activities",subtile:"plenty of activities"),
+                  MyListTile(height_image: 50,
+                    height_tile: 100,ImageIconPath: "lib/assets/icons/puzzle.png",
+                    tileName: "Activities",
+                      subtile:"plenty of activities",
+                   pressedButton:(){
+                     Navigator.of(context).pushNamed("welcome_to_activity");
+                   },),
                     SizedBox(height: 10,),
-                    MyListTile(ImageIconPath: "lib/assets/icons/palette.png", subtile: " let's paint here", tileName: "Drawing")
+                    MyListTile(
+                      height_image: 50,
+                        height_tile: 100,ImageIconPath: "lib/assets/icons/palette.png",
+                        subtile: " let's paint here",
+                        tileName: "Drawing")
                     ,SizedBox(height: 5,)
                     ,Text(
                       "Communication",style: TextStyle(fontSize: 20,fontWeight: FontWeight.bold,
