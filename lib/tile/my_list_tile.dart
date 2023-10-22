@@ -36,10 +36,10 @@ const MyListTile({super.key,
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
                           Text(tileName, style: TextStyle(fontWeight: FontWeight.bold,
-                             fontSize: 20),),
+                             fontSize: 20,color: Colors.blueGrey[700]),),
                           SizedBox(height: 5,),
                           Text(subtile, style: TextStyle(
-                              fontSize: 17),),
+                              fontSize: 17,color: Colors.blueGrey[600]),),
                         ],
                       ),
                      // SizedBox(width: 55,),

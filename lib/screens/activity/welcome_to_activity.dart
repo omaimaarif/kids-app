@@ -32,13 +32,15 @@ body: SizedBox(
 crossAxisAlignment: CrossAxisAlignment.center,
         children: [
           SizedBox(height: 150,),
-          Text("Step into a world of play and enjoyment right here..",
+
+          Text("Enter a realm of fun and delight, waiting just seconds away..",
             textAlign: TextAlign.center,
             style:TextStyle(fontSize: 24,
+            fontWeight: FontWeight.w500,
             color: Colors.blueGrey,) ,),
 
           SizedBox(height: 50,),
-          Image(image: AssetImage("lib/assets/activity_screen.png"),
+          Image(image: AssetImage("lib/assets/come-back.png"),
             width: 200,
             alignment: Alignment.bottomCenter,),
         ],
@@ -47,7 +49,7 @@ crossAxisAlignment: CrossAxisAlignment.center,
       SizedBox(height: 50,),
      SpinKitWanderingCubes
         (
-       color: Color(0xFFD5A5A8),
+       color: Color(0xFFEABE7B),
        size: 50.0,
       ),
     ],

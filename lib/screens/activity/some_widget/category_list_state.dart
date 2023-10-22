@@ -47,7 +47,7 @@ class _CategoryListState extends State<CategoryList> {
                 margin: EdgeInsets.symmetric(vertical: 20/2),
                 height: 6,width: 40,
                 decoration: BoxDecoration(borderRadius: BorderRadius.circular(10),
-                color: index== selectedCategory?  Color(0xFFCE99A4): Colors.transparent),
+                color: index== selectedCategory?  Color(0xFFC48E94): Colors.transparent),
               ),
             ],
           ),

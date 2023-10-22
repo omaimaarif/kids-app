@@ -108,7 +108,7 @@ class _HomeScreenState extends State<HomeScreen> {
               SmoothPageIndicator(controller:
               _controller, count: 3,
                   effect:ExpandingDotsEffect(
-                    activeDotColor: Color(0xFFDDB3B5)
+                    activeDotColor:  Color(0xE5C48E94)
                   ) ,)
 
   ,SizedBox(height: 20,),
@@ -119,7 +119,7 @@ class _HomeScreenState extends State<HomeScreen> {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                   Text(
-                    "Categories",style: TextStyle(fontSize: 20,fontWeight: FontWeight.bold,
+                    "Popular",style: TextStyle(fontSize: 20,fontWeight: FontWeight.bold,
                   color: Colors.grey),),
                   SizedBox(height: 10,),
                   MyListTile(height_image: 50,
@@ -137,7 +137,7 @@ class _HomeScreenState extends State<HomeScreen> {
                         tileName: "Drawing")
                     ,SizedBox(height: 5,)
                     ,Text(
-                      "Communication",style: TextStyle(fontSize: 20,fontWeight: FontWeight.bold,
+                      "Chatterbox",style: TextStyle(fontSize: 20,fontWeight: FontWeight.bold,
                         color: Colors.grey),),
                     SizedBox(height: 10,),
                     Row(

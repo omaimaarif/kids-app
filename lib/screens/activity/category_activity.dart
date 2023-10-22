@@ -15,11 +15,12 @@ class _CategoryActivityState extends State<CategoryActivity> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Color(0xFFE9EDEE),
       appBar: AppBar(
         backgroundColor: Colors.transparent,
         elevation: 0,
         leading:  IconButton(onPressed: (){
-          Navigator.of(context).pushNamed("activity");
+          Navigator.of(context).pushNamed("HomePage");
         },
           icon:Icon(Icons.arrow_back_ios),color: Colors.grey,),
       ),
@@ -36,20 +37,20 @@ class _CategoryActivityState extends State<CategoryActivity> {
                Text("Category",
                     style: TextStyle(fontSize: 20, color: Colors.grey,
                   ),),
-
                SizedBox(height: 20,),
                 MyListTile(pressedButton: (){
                 Navigator.of(context).pushNamed("activity");
                 },
-                    height_image: 70,
-                    height_tile: 170,ImageIconPath: "lib/assets/for_activity/stacking-toy.png",
-                    subtile: " ", tileName: "Drag Game"),
-                SizedBox(height: 10,),
+                    height_image: 75,
+                    height_tile: 170,ImageIconPath: "lib/assets/icons/casual-life-3d-idea-yellow-lamp.png",
+                    subtile: " organize items ", tileName: "Sorting!"),
+                SizedBox(height: 25,),
 
                 
-                MyListTile(height_image: 70,
-                    height_tile: 170,ImageIconPath: "lib/assets/for_activity/3dbricks.png",
-                    subtile: "meem", tileName: "Select Game"),
+                MyListTile(
+                    height_image: 75,
+                    height_tile: 170,ImageIconPath: "lib/assets/flourishing.png",
+                    subtile: " ", tileName: "   "),
                 SizedBox(height: 20,),
                 Divider(
                   height: 2,

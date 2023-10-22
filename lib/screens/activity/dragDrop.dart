@@ -24,7 +24,7 @@ class _DragDropState extends State<DragDrop> {
     super.initState();
     ques= List.generate(widget.questionModel.answers.length, (index) => {'image':widget.questionModel.images[index],'text':widget.questionModel.answers[index]});
     answer= List.generate(widget.questionModel.answers.length, (index) => {'image':'','text':''});
-    randomAnswer = widget.questionModel.answers;
+    randomAnswer = [...widget.questionModel.answers];
     randomAnswer.shuffle();
   }
 
@@ -32,9 +32,10 @@ class _DragDropState extends State<DragDrop> {
   Widget build(BuildContext context) {
     return Column(
       children: [
-        Text(widget.questionModel.title,style: TextStyle(
-            fontWeight: FontWeight.bold, fontSize: 20,color: Colors.blueGrey
-        ),),
+        Text(textAlign: TextAlign.center,widget.questionModel.title,style: TextStyle(
+            fontWeight: FontWeight.w500, fontSize: 19,color: Colors.blueGrey
+        ,),),
+        SizedBox(height: 10,),
         Wrap(
           alignment: WrapAlignment.center,
           direction: Axis.horizontal,
@@ -42,7 +43,7 @@ class _DragDropState extends State<DragDrop> {
               widget.questionModel.answers.length,
                   (index) => buildTarget(
                 context,
-                text: widget.questionModel.answers[index],
+                text: randomAnswer[index],
                 object: answer[index],
                 onAccept: (data) => setState(() {
                   if(answer.contains(data)){
@@ -56,7 +57,7 @@ class _DragDropState extends State<DragDrop> {
 
               )),
         ),
-        SizedBox(height: 10,),
+        SizedBox(height: 5,),
         Divider(
           thickness: 1, // thickness of the line
           indent: 20, // empty space to the leading edge of divider.
@@ -64,7 +65,7 @@ class _DragDropState extends State<DragDrop> {
           color: Colors.blueGrey, // The color to use when painting the line.
           height: 10,
         ),
-        SizedBox(height: 20,),
+        SizedBox(height: 10,),
         Wrap(
           alignment: WrapAlignment.center,
           direction: Axis.horizontal,
@@ -85,7 +86,7 @@ class _DragDropState extends State<DragDrop> {
                 }),
               )),
         ),
-        SizedBox(height: 10,),
+        SizedBox(height: 15,),
         ElevatedButton(onPressed: (){
           bool c=true;
           if(check == widget.questionModel.answers.length){
@@ -166,20 +167,19 @@ class _DragDropState extends State<DragDrop> {
                 ):
                 SizedBox( height: 150,
                   width: 150,),
-
                   SizedBox(height: 40,),
 
                   IgnorePointer(
                         child: Center(
                           child: Padding(
-                            padding: const EdgeInsets.only(top: 70, left: 20, right: 10,),
+                            padding: const EdgeInsets.only(top: 60, ),
                             child: Container(
                               child: Text(
                                 text,
                                 style: TextStyle(
                                     color:object['image']==''?Colors.grey: Colors.transparent,
-                                    fontSize: 20,
-                                    fontWeight: FontWeight.normal
+                                    fontSize: 15,
+                                    fontWeight: FontWeight.w500
                                 ),
                               ),
                             ),
