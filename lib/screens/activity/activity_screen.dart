@@ -16,6 +16,19 @@ class _activityScreenState extends State<activityScreen> {
 
   final List<QuestionModel> _question = [
 
+    QuestionModel(2,
+        images: [
+          'lib/assets/for_activity/basket.png',
+          'lib/assets/for_activity/bed.png',
+          'lib/assets/for_activity/book.png',
+          'lib/assets/for_activity/clock.png',
+          'lib/assets/for_activity/balloons.png',
+          'lib/assets/for_activity/gift-box.png',
+
+        ],
+        title: "Place the pictures in their\nappropriate positions",
+        answers: ['Basket','Bed','Book','Clock','balloons','Gift box',],
+        typeOfQuestion: 'drag'),
 
     QuestionModel(2,
         images: [
@@ -30,6 +43,7 @@ class _activityScreenState extends State<activityScreen> {
         answers: ['Bee', 'Cat', 'Chicken','Dolphin','Goose','Horse'],
         typeOfQuestion: 'drag'),
 
+
     QuestionModel(2,
         images: [
           'lib/assets/for_activity/anger.png',
@@ -41,20 +55,6 @@ class _activityScreenState extends State<activityScreen> {
         ],
         title: "Let's try to name these emotions together",
         answers: ['Anger', 'Crying', 'Disgruntled','Smile','Surprised','Tired',],
-        typeOfQuestion: 'drag'),
-
-    QuestionModel(2,
-        images: [
-          'lib/assets/for_activity/basket.png',
-          'lib/assets/for_activity/bed.png',
-          'lib/assets/for_activity/book.png',
-          'lib/assets/for_activity/clock.png',
-          'lib/assets/for_activity/balloons.png',
-          'lib/assets/for_activity/gift-box.png',
-
-        ],
-        title: "Place the pictures in their\nappropriate positions",
-        answers: ['Basket','Bed','Book','Clock','balloons','Gift box',],
         typeOfQuestion: 'drag'),
     QuestionModel(1,
         images: [
@@ -71,18 +71,8 @@ class _activityScreenState extends State<activityScreen> {
         title: "What does a tree need to grow?",
         answers: ['Butterfly','Sun', 'Candy', 'Fire','Cake','Soap','Soil','Bread','Vegetables'],
         typeOfQuestion: 'select'),
-    QuestionModel(2,
-        images: [
-          'lib/assets/for_activity/apple.png',
-          'lib/assets/for_activity/bananas.png',
-          'lib/assets/for_activity/chocolate.png',
-          'lib/assets/for_activity/donut.png',
-          'lib/assets/for_activity/ice-cream.png',
-          'lib/assets/for_activity/watermelon.png',
-        ],
-        title: "Try to determine the healthy and unhealthy food options",
-        answers: ['Apple', 'Banana', 'Chocolate','Donut','Ice cream','Watermelon',],
-        typeOfQuestion: 'drag'),
+
+
 
   ];
   int score = 0;
@@ -118,7 +108,7 @@ class _activityScreenState extends State<activityScreen> {
                    },
                  )
                      : Select(
-                   //key: UniqueKey(),
+                   key: UniqueKey(),
                    questionModel: _question[counter],
                    next: (n) {
                      check(n);

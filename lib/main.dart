@@ -1,6 +1,5 @@
 import 'package:another_final_kids_app/screens/activity/activity_screen.dart';
 import 'package:another_final_kids_app/screens/activity/dragDrop.dart';
-
 import 'package:another_final_kids_app/screens/activity/welcome_to_activity.dart';
 import 'package:another_final_kids_app/screens/home_page/home_screen.dart';
 import 'package:another_final_kids_app/screens/login_screen/login_screen.dart';
@@ -18,6 +17,8 @@ void main() async {
   await Firebase.initializeApp();
   runApp(MyApp());
 }
+const Color kCanvasColor = Color(0xfff2f3f7);
+const String kGithubRepo = 'https://github.com/JideGuru/flutter_drawing_board';
 
 class MyApp extends StatefulWidget {
   const MyApp({Key? key}) : super(key: key);
@@ -45,7 +46,8 @@ class _MyAppState extends State<MyApp> {
   Widget build(BuildContext context) {
     return GetMaterialApp(
       debugShowCheckedModeBanner: false,
-      home:FirebaseAuth.instance.currentUser==null?OnBordingScreen(): HomeScreen(),
+
+      home: FirebaseAuth.instance.currentUser==null?OnBordingScreen(): HomeScreen(),
       routes: {"signup": (context)  => SignUpScreen(),
         "login": (context)  => LoginScreen(),
         "sideMenu":(context) => SideMenu(),
