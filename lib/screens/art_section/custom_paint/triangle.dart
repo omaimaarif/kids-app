@@ -6,6 +6,7 @@ class TrianglePage  extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+
     return CustomPaint(
       painter: TrianglePainter(),
       child: Container(),

@@ -1,6 +1,6 @@
-import 'package:another_final_kids_app/custom_paint/rectangle.dart';
-import 'package:another_final_kids_app/custom_paint/smiley.dart';
-import 'package:another_final_kids_app/custom_paint/triangle.dart';
+
+import 'package:another_final_kids_app/screens/art_section/custom_paint/rectangle.dart';
+import 'package:another_final_kids_app/screens/art_section/custom_paint/triangle.dart';
 import 'package:flutter/material.dart';
 import 'circle.dart';
 import 'curves.dart';
@@ -22,7 +22,6 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
     'Rectangle',
     'Triangle',
     'Curves',
-    'Smiley🙂',
   ];
 
   List<Widget> tabPages = [
@@ -31,7 +30,7 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
     RectanglePage(),
     TrianglePage(),
     CurvesPage(),
-    SmileyPage(),
+
   ];
 
   @override

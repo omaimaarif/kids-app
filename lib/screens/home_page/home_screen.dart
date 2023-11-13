@@ -10,15 +10,15 @@ import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 import '../../cards/home_page_card.dart';
 import '../side_menu/side_menu_screen.dart';
 
-class HomeScreen extends StatefulWidget {
-   HomeScreen({super.key,});
+class MainScreen extends StatefulWidget {
+   MainScreen({super.key,});
 
 
   @override
-  State<HomeScreen> createState() => _HomeScreenState();
+  State<MainScreen> createState() => _MainScreenState();
 }
 
-class _HomeScreenState extends State<HomeScreen> {
+class _MainScreenState extends State<MainScreen> {
   final _controller=PageController();
   late SMIBool isSideBarClosed;
 
@@ -131,6 +131,9 @@ class _HomeScreenState extends State<HomeScreen> {
                    },),
                     SizedBox(height: 10,),
                     MyListTile(
+                      pressedButton: (){
+                        Navigator.of(context).pushNamed("welcome_to_art_section");
+                      },
                       height_image: 50,
                         height_tile: 100,ImageIconPath: "lib/assets/icons/palette.png",
                         subtile: " let's paint here",
@@ -143,7 +146,8 @@ class _HomeScreenState extends State<HomeScreen> {
                     Row(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        MyButtons(buttonText: "chat", IconImagePath: "lib/assets/icons/paper.png"),
+                        MyButtons(
+                        buttonText: "chat", IconImagePath: "lib/assets/icons/paper.png"),
                       ],
                     )
                 ],

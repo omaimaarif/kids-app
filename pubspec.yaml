@@ -59,6 +59,10 @@ dependencies:
   universal_html: ^2.2.4
   image_picker: ^1.0.4
   file_picker: ^6.0.0
+  audioplayers: ^5.2.0
+  webview_flutter: ^4.4.2
+  zego_uikit_prebuilt_call: ^3.17.9
+  modal_progress_hud_nsn: ^0.4.0
 
 
 dev_dependencies:
@@ -90,6 +94,7 @@ flutter:
       - lib/assets/icons/rive icons/
       - lib/assets/for_activity/
       - lib/assets/images/
+      - lib/assets/svgs/
   #   - images/a_dot_ham.jpeg
 
   # An image asset can refer to one or more resolution-specific "variants", see

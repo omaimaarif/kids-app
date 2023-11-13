@@ -1,6 +1,7 @@
 import 'package:another_final_kids_app/cards/home_page_card.dart';
 import 'package:another_final_kids_app/screens/activity/dragDrop.dart';
-import 'package:another_final_kids_app/screens/activity/some_widget/category_list_state.dart';
+import 'package:another_final_kids_app/screens/activity/some_widget/education_activity.dart';
+import 'package:another_final_kids_app/screens/activity/some_widget/sorting_and_drag.dart';
 import 'package:another_final_kids_app/tile/my_list_tile.dart';
 import 'package:flutter/material.dart';
 
@@ -14,64 +15,60 @@ class CategoryActivity extends StatefulWidget {
 class _CategoryActivityState extends State<CategoryActivity> {
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      backgroundColor: Color(0xFFE9EDEE),
-      appBar: AppBar(
-        backgroundColor: Colors.transparent,
-        elevation: 0,
-        leading:  IconButton(onPressed: (){
-          Navigator.of(context).pushNamed("HomePage");
-        },
-          icon:Icon(Icons.arrow_back_ios),color: Colors.grey,),
-      ),
-
-      body: SingleChildScrollView(
-        child: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 20),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
+    return DefaultTabController(
+      length: 4,
+      child: Scaffold(
+        backgroundColor: Color(0xFF143233),
+        appBar: AppBar(
+          backgroundColor: Colors.transparent,
+          elevation: 0,
+          leading:  IconButton(onPressed: (){
+            Navigator.of(context).pushNamed("HomePage");
+          },
+            icon:Icon(Icons.arrow_back_ios),color: Colors.grey,),
+        ),
+        body: Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 20),
+            child: Column(
               children: [
-                CategoryList(),
-                SizedBox(height: 20,),
+                Padding(padding: EdgeInsets.symmetric(horizontal:10 ),
+                ),
+                SizedBox(height: 5,),
+                TabBar(
+                  isScrollable: true,
+                  indicator: UnderlineTabIndicator(
+                    borderSide: BorderSide(color: Colors.white70, width: 2.0),
+                  ),
 
-               Text("Category",
-                    style: TextStyle(fontSize: 20, color: Colors.grey,
-                  ),),
-               SizedBox(height: 20,),
-                MyListTile(pressedButton: (){
-                Navigator.of(context).pushNamed("activity");
-                },
-                    height_image: 75,
-                    height_tile: 170,ImageIconPath: "lib/assets/icons/casual-life-3d-idea-yellow-lamp.png",
-                    subtile: " organize items ", tileName: "Sorting!"),
-                SizedBox(height: 25,),
+                  labelStyle: TextStyle(
+                    color: Colors.grey,
+                    fontSize: 20,
+                  ),
+                  labelPadding: EdgeInsets.symmetric(horizontal: 20),
+                  tabs: [
+                    Tab(text:"Select and Drop",),
+                    Tab(text:"Education",),
+                    Tab(text:"Express Your Feelings",),
 
-                
-                MyListTile(
-                    height_image: 75,
-                    height_tile: 170,ImageIconPath: "lib/assets/flourishing.png",
-                    subtile: " ", tileName: "   "),
-                SizedBox(height: 20,),
-                Divider(
-                  height: 2,
-                  thickness: 2,
-                  color: Colors.grey[200],
-                )
+                  ],
 
+                ),
+                SizedBox(height: 40,),
 
-
-
-
-
-
-
-
-
+                Flexible(
+                    flex: 1,
+                    child: TabBarView(
+                      children: [
+                        SortAndDrag(),
+                        EducationActivity(),
+                        Container(color: Colors.white,),
+                      ],
+                    )),
               ],
             ),
+          ),
         ),
-      ),
-      );
-
+    );
   }
 }
+

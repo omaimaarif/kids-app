@@ -1,12 +1,13 @@
 import 'package:flutter/material.dart';
 
 class MyButtons extends StatelessWidget {
+  // final void Function()? pressedButton;
   final String IconImagePath;
   final String buttonText;
 
   const MyButtons({super.key,
   required this.buttonText,
-  required this.IconImagePath});
+  required this.IconImagePath,});
 
   @override
   Widget build(BuildContext context) {
@@ -25,8 +26,15 @@ class MyButtons extends StatelessWidget {
                 )
               ]),
           height: 100,
-          child: Center(
-            child: Image(image: AssetImage(IconImagePath),height: 50,),
+          child: Row(
+            children: [
+              Center(
+                child: Image(image: AssetImage(IconImagePath),height: 50,),
+
+
+              ),
+
+            ],
           ),
         ),
         SizedBox(height: 8,),
