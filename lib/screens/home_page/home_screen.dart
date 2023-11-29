@@ -31,7 +31,7 @@ class _MainScreenState extends State<MainScreen> {
             GoogleSignIn googleSignIn = GoogleSignIn();
             googleSignIn.disconnect();
             await FirebaseAuth.instance.signOut();
-            Navigator.of(context).pushNamedAndRemoveUntil("login", (route) => false);
+            Navigator.of(context).pushNamedAndRemoveUntil("splash", (route) => false);
           },
                 icon: Icon(Icons.exit_to_app),color: Colors.black87,)
         ],
@@ -147,7 +147,9 @@ class _MainScreenState extends State<MainScreen> {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         MyButtons(
-                        buttonText: "chat", IconImagePath: "lib/assets/icons/paper.png"),
+                        buttonText: "chat", IconImagePath: "lib/assets/icons/paper.png", onTap: () {
+                          Navigator.of(context).pushNamed('chat_screen');
+                        },),
                       ],
                     )
                 ],

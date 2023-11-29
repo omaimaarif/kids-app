@@ -1,4 +1,5 @@
 
+import 'package:another_final_kids_app/screens/messagin/widgets/my_button.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/material.dart';
@@ -113,10 +114,10 @@ class _LoginFormState extends State<LoginForm> {
 
                       }, child: Text("Forget password?")),
                 ),
-
+SizedBox(height: 50,),
                 SizedBox(
                   width: double.infinity,
-                  child: ElevatedButton(
+                  child: Button_for_chat_screens(
                       onPressed: () async {
                         if (formState.currentState!.validate()){
                           try {
@@ -174,16 +175,9 @@ class _LoginFormState extends State<LoginForm> {
                         }
 
                       },
-                      style: ElevatedButton.styleFrom(
-                        primary: Color(0xDF5D7A7C),
-                        foregroundColor: Colors.white,
-                        side:  BorderSide(color: Color(0xFFA5C2C2)),
-                        shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(20.0)
-                        ),
-                        fixedSize: Size.fromHeight(45)
-                      ),
-                      child: Text(tLogin.toUpperCase())),
+                    color: Color(0xFF6898A2),
+                    title: 'Login',
+                ),
                 )
                 ,SizedBox(height: 2,)
               ],

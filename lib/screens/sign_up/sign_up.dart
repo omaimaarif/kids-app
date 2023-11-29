@@ -1,5 +1,6 @@
 
 import 'package:another_final_kids_app/screens/login_screen/login_screen.dart';
+import 'package:another_final_kids_app/screens/messagin/widgets/my_button.dart';
 import 'package:awesome_dialog/awesome_dialog.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
@@ -29,18 +30,23 @@ class _SignUpScreenState extends State<SignUpScreen> {
         color: Color(0x3ADDE7E7)
       ),
           child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-            SizedBox(height: 15),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.end,
-                children: [
-                  Image(image: AssetImage("lib/assets/woolly-fly.png"),
-                    width: 40,height: 40,alignment: Alignment.topRight),
-                  SizedBox(width: 130,),
-                  Image(image: AssetImage("lib/assets/woolly-koala.png"),
-                    width: 190,height: 190,alignment: Alignment.bottomLeft,),
-                ],
+              SizedBox(height: 50),
+              Padding(
+                padding: const EdgeInsets.only(left: 20),
+                child: Text(
+                  " Sign up",
+                  style: GoogleFonts.courgette(
+                    color: Color(0x385D7A7C),
+                    fontWeight: FontWeight.bold,
+                    fontSize: 35,
+                  ),),
+
               ),
+
+              SizedBox(height:30,),
+
               Expanded(child:Container(
                 decoration: BoxDecoration(
                   color: Colors.white,
@@ -57,7 +63,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                       key: formState,
                       child: Column(
                         children: [
-                       //   SizedBox(height: 20,),
+                          SizedBox(height:30,),
                           TextFormField(
                             validator: (val){if(val==""){
                               return"This field cannot be left blank";
@@ -76,7 +82,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                               }},
                               controller: emailController,
                               decoration:  InputDecoration(
-                                label:Text("Full name"),
+                                label:Text("Email address"),
                                 contentPadding: EdgeInsets.symmetric(vertical: 14.0),
                                 prefixIcon: Icon(Icons.email_outlined),)
                           ),
@@ -97,12 +103,14 @@ class _SignUpScreenState extends State<SignUpScreen> {
                               decoration:  InputDecoration(
                                 label:Text("Password"),
                                 contentPadding: EdgeInsets.symmetric(vertical: 14.0),
-                                prefixIcon: Icon(Icons.lock),)
+                                prefixIcon: Icon(Icons.remove_red_eye_sharp),)
                           ),
-                          SizedBox(height:20,),
+                          SizedBox(height:30,),
                           SizedBox(
                             width: double.infinity,
-                            child: ElevatedButton(
+                            child: Button_for_chat_screens(
+                                color: Color(0xFF6898A2),
+                                title: 'Register',
                                 onPressed:() async {
                                if(formState.currentState!.validate()){
                                   try {
@@ -110,7 +118,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                                       email: emailController.text,
                                       password: passwordController.text,
                                     );
-                                    Navigator.of(context).pushReplacementNamed("HomePage");
+                                    Navigator.of(context).pushReplacementNamed("chat_screen");
 
                                   } on FirebaseAuthException catch (e) {
                                     if (e.code == 'weak-password') {
@@ -179,18 +187,8 @@ class _SignUpScreenState extends State<SignUpScreen> {
                                 }
 
                                 }
-                               , style: ElevatedButton.styleFrom(
-                                    primary: Color(0xDF5D7A7C),
-                                    foregroundColor: Colors.white,
-                                    side:  BorderSide(color: Color(0xFFA5C2C2)),
-                                    shape: RoundedRectangleBorder(
-                                        borderRadius: BorderRadius.circular(20.0)
-                                    ),
-                                    fixedSize: Size.fromHeight(45)
-                                ),
-                                child: Text("Sign up".toUpperCase()))
 
-                          ),
+                          ),),
                           Column(
                             children: [
                               TextButton(
@@ -205,7 +203,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                                   child: Text.rich(TextSpan(children: [
                                     TextSpan(
                                       text: "Already have an acoount? ",
-                                      style: Theme.of(context).textTheme.bodyText1,
+                                      style: TextStyle(color: Colors.black45)
                                     ),
                                     TextSpan(text: "Login now".toUpperCase())
                                   ])),

@@ -40,7 +40,7 @@ class _WelcomToArtSectionState extends State<WelcomToArtSection> {
                     color: Colors.blueGrey,) ,),
 
                 SizedBox(height: 100,),
-                Image(image: AssetImage("lib/assets/images/drawing (3).png"),
+                Image(image: AssetImage("lib/assets/images_paint/drawing (3).png"),
                   width: 200,
                   alignment: Alignment.bottomCenter,),
               ],

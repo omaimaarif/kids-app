@@ -14,11 +14,11 @@ class Button_for_chat_screens extends StatelessWidget {
       child: Material(
         elevation: 5,
         color: color,
-        borderRadius: BorderRadius.circular(10),
+        borderRadius: BorderRadius.circular(40),
         child: MaterialButton(
           onPressed: onPressed,
-          minWidth: 200,
-          height: 42,
+          minWidth: 150,
+          height: 40,
           child: Text(
             title,
             style: TextStyle(color: Colors.white),

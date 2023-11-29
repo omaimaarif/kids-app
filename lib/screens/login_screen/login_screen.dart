@@ -43,28 +43,22 @@ class _LoginScreenState extends State<LoginScreen> {
           color: Color(0x3ADDE7E7),
         ),
         child: Column(
-          //crossAxisAlignment: CrossAxisAlignment.start,
+          crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            SizedBox(height: 5),
-            Row(
-              children: [
-                Image(
-                  image: AssetImage("lib/assets/heart.png"),
-                  width: 30,
-                  height: 30,
-                  alignment: Alignment.topLeft,
-                ),
-                Image(
-                  image: AssetImage("lib/assets/bird.png"),
-                  width: 150,
-                  height: 150,
-                  alignment: Alignment.bottomLeft,
-                ),
-              ],
-            ),
+            SizedBox(height: 50),
+        Padding(
+          padding: const EdgeInsets.only(left: 20),
+          child: Text(
+                  "Hello again!",
+                  style: GoogleFonts.courgette(
+                    color: Color(0x385D7A7C),
+                    fontWeight: FontWeight.bold,
+                    fontSize: 35,
+                  ),),
+        ),
+
             SizedBox(
-              height: 10,
-            ),
+              height: 20,),
             Expanded(
               child: Container(
                 decoration: BoxDecoration(
@@ -81,14 +75,6 @@ class _LoginScreenState extends State<LoginScreen> {
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        Text(
-                          "Hello again!",
-                          style: GoogleFonts.courgette(
-                            color: Color(0x385D7A7C),
-                            fontWeight: FontWeight.bold,
-                            fontSize: 35,
-                          ),
-                        ),
                         SizedBox(
                           height: 25,
                         ),
@@ -99,15 +85,17 @@ class _LoginScreenState extends State<LoginScreen> {
                         Column(
                           crossAxisAlignment: CrossAxisAlignment.center,
                           children: [
+                            SizedBox(height: 2,),
                             Text(
                               "Or",
                               style: TextStyle(color: Color(0x9B28292B)),
                             ),
+                            SizedBox(height: 2,),
                             SizedBox(
                               width: double.infinity,
                               child: OutlinedButton.icon(
                                 style: OutlinedButton.styleFrom(
-                                    side: BorderSide(color: Color(0xDF5D7A7C)),
+                                    side: BorderSide(color: Color(0xFF6898A2)),
                                     shape: RoundedRectangleBorder(
                                       borderRadius: BorderRadius.circular(20),
                                     ),
@@ -135,7 +123,9 @@ class _LoginScreenState extends State<LoginScreen> {
                     child: Text.rich(
                       TextSpan(
                         text: "Don't have an account?",
-                        style: Theme.of(context).textTheme.bodyText1,
+                        style: TextStyle(
+                          color: Colors.black45
+                        ),
                         children: [
                           TextSpan(
                             text: "Sign up",

@@ -4,9 +4,11 @@ class MyButtons extends StatelessWidget {
   // final void Function()? pressedButton;
   final String IconImagePath;
   final String buttonText;
+  final void  Function()? onTap;
 
   const MyButtons({super.key,
   required this.buttonText,
+    required this.onTap,
   required this.IconImagePath,});
 
   @override
@@ -29,11 +31,14 @@ class MyButtons extends StatelessWidget {
           child: Row(
             children: [
               Center(
-                child: Image(image: AssetImage(IconImagePath),height: 50,),
-
-
+                child: GestureDetector(
+                  onTap:onTap,
+                  child: Image(
+                    image: AssetImage(IconImagePath),
+                    height: 50,
+                  ),
+                ),
               ),
-
             ],
           ),
         ),

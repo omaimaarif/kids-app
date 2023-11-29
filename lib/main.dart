@@ -1,9 +1,13 @@
 import 'package:another_final_kids_app/screens/activity/activity_screen.dart';
 import 'package:another_final_kids_app/screens/activity/dragDrop.dart';
 import 'package:another_final_kids_app/screens/activity/math_game/math_game_home.dart';
+import 'package:another_final_kids_app/screens/activity/puzzle_hack/main_puzzle.dart';
+import 'package:another_final_kids_app/screens/activity/puzzle_hack/screens/puzzle_page.dart';
+import 'package:another_final_kids_app/screens/activity/puzzle_hack/theme.dart';
 import 'package:another_final_kids_app/screens/activity/welcome_to_activity.dart';
 import 'package:another_final_kids_app/screens/art_section/drawing_page.dart';
 import 'package:another_final_kids_app/screens/art_section/welcome/welcome_to_art.dart';
+import 'package:another_final_kids_app/screens/chatterbox/call.dart';
 import 'package:another_final_kids_app/screens/chatterbox/homecall.dart';
 import 'package:another_final_kids_app/screens/chatterbox/login.dart';
 import 'package:another_final_kids_app/screens/home_page/home_screen.dart';
@@ -27,7 +31,7 @@ void main() async {
   runApp(MyApp());
 }
 const Color kCanvasColor = Color(0xfff2f3f7);
-// const String kGithubRepo = 'https://github.com/JideGuru/flutter_drawing_board';
+
 
 class MyApp extends StatefulWidget {
   const MyApp({Key? key}) : super(key: key);
@@ -52,12 +56,18 @@ class _MyAppState extends State<MyApp> {
     super.initState();
   }
   @override
+
   Widget build(BuildContext context) {
+
     return GetMaterialApp(
       debugShowCheckedModeBanner: false,
 
-      home: WelcomeScreen(),
+      home:FirebaseAuth.instance.currentUser==null?OnBordingScreen(): MainScreen(),
+
       routes: {"signup": (context)  => SignUpScreen(),
+        "splash": (context)  => OnBordingScreen(),
+
+        "sign_up": (context)  => SignUpScreen(),
         "login": (context)  => LoginScreen(),
         "sideMenu":(context) => SideMenu(),
         "HomePage": (context)=> MainScreen(),
@@ -68,14 +78,21 @@ class _MyAppState extends State<MyApp> {
         "welcome_to_art_section": (context) => WelcomToArtSection(),
         "home_call": (context) => HomeCall(),
         "chatterbox": (context) => LoginCall(),
-        WelcomeScreen.screenRoute: (context) => WelcomeScreen(),
-        SignInScreen.screenRoute: (context) => SignInScreen(),
-        RegistrationScreen.screenRoute: (context) => RegistrationScreen(),
-        ChatScreen.screenRoute: (context) => ChatScreen(),
+        "welcome_chat": (context) => WelcomeScreen(),
+        "sign_in_chat": (context) => SignInScreen(),
+        "regestration_chat": (context) => RegistrationScreen(),
+        "chat_screen": (context) => ChatScreen(),
+
+
+
+        // WelcomeScreen.screenRoute: (context) => WelcomeScreen(),
+        // SignInScreen.screenRoute: (context) => SignInScreen(),
+        // RegistrationScreen.screenRoute: (context) => RegistrationScreen(),
+        // ChatScreen.screenRoute: (context) => ChatScreen(),
 
       },
 
     );
   }
 }
-//FirebaseAuth.instance.currentUser==null?OnBordingScreen(): HomeScreen(),
+//FirebaseAuth.instance.currentUser==null?OnBordingScreen(): MainScreen(),

@@ -1,3 +1,4 @@
+import 'package:another_final_kids_app/screens/chatterbox/call.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
@@ -40,44 +41,42 @@ class _ChatScreenState extends State<ChatScreen> {
     }
   }
 
-//   void getMessages () async {
-//     final messages=await _firestore.collection('messages').get();
-//
-//    for( var message in messages.docs){
-// print(message.data());
-//    }
-//   }
 
-  // void messagesStreams() async {
-  //   await for (var snapsot in _firestore.collection('messages').snapshots()){
-  //    for(var message in snapsot.docs){
-  //      print(message.data());
-  //
-  //    }
-  //   }
-  // }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Colors.yellow[900],
+        elevation: 0,
+        backgroundColor:Color(0xFFDFDFDF),
         title: Row(
           children: [
-            Image.asset('lib/assets/logo.png', height: 25),
-            SizedBox(width: 10),
-            Text('MessageMe')
+            Image.asset('lib/assets/user.png', height: 40),
+
+
           ],
         ),
         actions: [
           IconButton(
             onPressed: () {
-              _auth.signOut();
-              Navigator.pop(context);
+              Navigator.of(context).push(
+                  MaterialPageRoute(builder: (context) => MyCall(callID: "1")));
             },
-            icon: Icon(Icons.close),
-          )
+            icon: Icon(Icons.call, color: Color(0xFF6898A2)),
+          ),
+          IconButton(
+            onPressed: () {
+
+            },
+            icon: Icon(Icons.menu, color: Color(0xFF6898A2)),
+          ),
         ],
+        leading: IconButton(
+          onPressed: (){
+            Navigator.of(context).pushNamed('HomePage');
+          },
+          icon: Icon(Icons.arrow_back_ios, color: Color(0xFF6898A2),),
+        )
       ),
       body: SafeArea(
         child: Column(
@@ -86,13 +85,22 @@ class _ChatScreenState extends State<ChatScreen> {
           children: [
             MessageStreamBuilder(),
             Container(
+
               decoration: BoxDecoration(
                 border: Border(
                   top: BorderSide(
-                    color: Colors.orange,
-                    width: 2,
+                    color: Colors.grey[200]!,
+                    width: 1,
                   ),
                 ),
+                boxShadow: [
+                  BoxShadow(
+                    color: Colors.grey.withOpacity(0.2),
+                    spreadRadius: 2,
+                    blurRadius: 4,
+                    offset: Offset(0, 2),
+                  )
+                ]
               ),
               child: Row(
                 crossAxisAlignment: CrossAxisAlignment.center,
@@ -104,17 +112,22 @@ class _ChatScreenState extends State<ChatScreen> {
 
                         messageText= value;
                       },
+                      keyboardType: TextInputType.multiline,
+                      maxLines: null,
                       decoration: InputDecoration(
+                        hintStyle: TextStyle(color: Color(0xB3306471)),
+                        // filled: true,
+                        // fillColor: Colors.grey[200],
                         contentPadding: EdgeInsets.symmetric(
                           vertical: 10,
                           horizontal: 20,
                         ),
-                        hintText: 'Write your message here...',
+                        hintText: 'Type here...',
                         border: InputBorder.none,
                       ),
                     ),
                   ),
-                  TextButton(
+                  IconButton(
                     onPressed: () {
                       messageTextController.clear();
                       _firestore.collection('messages').add({
@@ -123,14 +136,8 @@ class _ChatScreenState extends State<ChatScreen> {
                         'time': FieldValue.serverTimestamp(),
                       });
                     },
-                    child: Text(
-                      'send',
-                      style: TextStyle(
-                        color: Colors.blue[800],
-                        fontWeight: FontWeight.bold,
-                        fontSize: 18,
-                      ),
-                    ),
+                    icon: Icon(Icons.send, color: Color(0xFF306471),),
+
                   )
                 ],
               ),
@@ -146,7 +153,7 @@ class MessageStreamBuilder extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return    StreamBuilder<QuerySnapshot>(
+    return  StreamBuilder<QuerySnapshot>(
         stream: _firestore.collection('messages').orderBy('time').snapshots(),
         builder: (context, snapshot){
 
@@ -157,7 +164,6 @@ class MessageStreamBuilder extends StatelessWidget {
                 backgroundColor: Colors.blue,
               ),
             );
-
           }
           final messages=snapshot.data!.docs.reversed;
           for(var message in messages){
@@ -188,9 +194,6 @@ class MessageStreamBuilder extends StatelessWidget {
 
 
 
-
-
-
  class MessageLine extends StatelessWidget {
    const MessageLine({ this.text,this.sender,  super.key, required this.isMe});
 
@@ -206,7 +209,7 @@ class MessageStreamBuilder extends StatelessWidget {
          crossAxisAlignment:isMe? CrossAxisAlignment.end: CrossAxisAlignment.start,
          children: [
            Text('$sender', style: TextStyle(
-             fontSize: 12, color: Colors.yellow[900]
+             fontSize: 1, color: Colors.transparent
            ),),
            Material(
              elevation: 5,
@@ -221,18 +224,16 @@ class MessageStreamBuilder extends StatelessWidget {
                bottomRight: Radius.circular(30),
 
              ),
-             color:isMe? Colors.blue[800] : Colors.white,
-
+             color:isMe? Color(0xFF6898A2) : Colors.white,
              child: Padding(
                padding: EdgeInsets.symmetric(vertical: 10, horizontal: 20),
                child: Text('$text',style:
-               TextStyle(fontSize: 15, color:isMe?  Colors.white: Colors.black54),
+               TextStyle(fontSize: 15, color:isMe?  Colors.white: Color(0xFF6898A2)),
 
                ),
              ),
            ),
          ],
-
        ),
      );
    }

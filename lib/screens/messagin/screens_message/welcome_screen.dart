@@ -27,32 +27,46 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
             Column(
               children: [
                 Container(
-                  height: 180,
-                  child: Image.asset('lib/assets/logo.png'),
+                  height: 240,
+                  child: Image.asset('lib/assets/communication.png'),
                 ),
+                SizedBox(height: 50,),
                 Text(
-                  'MessageMe',
+                  ' Thanks for joining us!',
                   style: TextStyle(
-                    fontSize: 40,
-                    fontWeight: FontWeight.w900,
-                    color: Color(0xff2e386b),
+                    fontSize: 24,
+                    fontWeight: FontWeight.bold,
+                    color: Colors.black45,
                   ),
+                  textAlign: TextAlign.center,
                 ),
+                SizedBox(height: 3,),
+                Text(
+                      "To access the messaging area, please select one of the following options",
+                  style: TextStyle(
+                    fontSize: 16,
+                    fontWeight: FontWeight.w400,
+                    color: Colors.grey,
+                  ),
+                  textAlign: TextAlign.center,
+                ),
+
+
               ],
             ),
             SizedBox(height: 30),
             Button_for_chat_screens(
-              color: Colors.yellow[900]!,
+              color: Color(0xFF6898A2),
               title: 'Sign in',
               onPressed: () {
-                Navigator.pushNamed(context, SignInScreen.screenRoute);
+                Navigator.of(context).pushNamed('login');
               },
             ),
             Button_for_chat_screens(
-              color: Colors.blue[800]!,
+              color: Colors.grey,
               title: 'register',
               onPressed: () {
-                Navigator.pushNamed(context, RegistrationScreen.screenRoute);
+                Navigator.of(context).pushNamed('sign_up');
               },
             )
           ],
