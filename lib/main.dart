@@ -1,6 +1,7 @@
 import 'package:another_final_kids_app/screens/activity/activity_screen.dart';
 import 'package:another_final_kids_app/screens/activity/dragDrop.dart';
 import 'package:another_final_kids_app/screens/activity/math_game/math_game_home.dart';
+import 'package:another_final_kids_app/screens/activity/num_puzzle/board.dart';
 import 'package:another_final_kids_app/screens/activity/puzzle_hack/main_puzzle.dart';
 import 'package:another_final_kids_app/screens/activity/puzzle_hack/screens/puzzle_page.dart';
 import 'package:another_final_kids_app/screens/activity/puzzle_hack/theme.dart';
@@ -23,6 +24,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:get/get.dart';
 
 void main() async {
@@ -82,6 +84,8 @@ class _MyAppState extends State<MyApp> {
         "sign_in_chat": (context) => SignInScreen(),
         "regestration_chat": (context) => RegistrationScreen(),
         "chat_screen": (context) => ChatScreen(),
+        "puzzle_hack": (context) => ProviderScope(child: App(appTheme: AppTheme())),
+        "puzzle_num": (context) => board(),
 
 
 
