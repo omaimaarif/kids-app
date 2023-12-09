@@ -1,6 +1,9 @@
 import 'package:another_final_kids_app/screens/activity/activity_screen.dart';
 import 'package:another_final_kids_app/screens/activity/dragDrop.dart';
 import 'package:another_final_kids_app/screens/activity/math_game/math_game_home.dart';
+import 'package:another_final_kids_app/screens/activity/memory_game/managers/game_manager.dart';
+import 'package:another_final_kids_app/screens/activity/memory_game/models/word.dart';
+import 'package:another_final_kids_app/screens/activity/memory_game/pages/game_page.dart';
 import 'package:another_final_kids_app/screens/activity/num_puzzle/board.dart';
 import 'package:another_final_kids_app/screens/activity/puzzle_hack/main_puzzle.dart';
 import 'package:another_final_kids_app/screens/activity/puzzle_hack/screens/puzzle_page.dart';
@@ -21,20 +24,47 @@ import 'package:another_final_kids_app/screens/on_bording_screen.dart';
 import 'package:another_final_kids_app/screens/side_menu/side_menu_screen.dart';
 import 'package:another_final_kids_app/screens/sign_up/sign_up.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:firebase_storage/firebase_storage.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:get/get.dart';
+import 'package:provider/provider.dart'as meem;
 
+
+
+List<Word> sourceWords = [];
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp();
-  runApp(MyApp());
+
+  //HEEEEEEEEEEEEEEEEEERE
+  SystemChrome.setPreferredOrientations([
+    DeviceOrientation.landscapeLeft,
+    DeviceOrientation.landscapeRight
+  ]);
+  //ENNNNNNNNNNND
+  runApp(FutureBuilder(
+    future:populateSourceWords() ,
+    builder: (context, snapshot) {
+      if (snapshot.hasError) {
+        return Text('Error:\n Check your internet connection');
+      }
+      if (snapshot.hasData) {
+        print('sucsses! source word lenghth ${sourceWords.length}');
+        return const MyApp();
+      } else {
+       return Center(child: CircularProgressIndicator());
+      }
+    },
+  ),
+  );
 }
+
+
 const Color kCanvasColor = Color(0xfff2f3f7);
-
-
 class MyApp extends StatefulWidget {
   const MyApp({Key? key}) : super(key: key);
 
@@ -64,7 +94,11 @@ class _MyAppState extends State<MyApp> {
     return GetMaterialApp(
       debugShowCheckedModeBanner: false,
 
-      home:FirebaseAuth.instance.currentUser==null?OnBordingScreen(): MainScreen(),
+      home:Material(
+          child:meem.ChangeNotifierProvider(
+              create: (_) => GameManager(), child: const GamePage()
+          )
+      ),
 
       routes: {"signup": (context)  => SignUpScreen(),
         "splash": (context)  => OnBordingScreen(),
@@ -88,7 +122,6 @@ class _MyAppState extends State<MyApp> {
         "puzzle_num": (context) => board(),
 
 
-
         // WelcomeScreen.screenRoute: (context) => WelcomeScreen(),
         // SignInScreen.screenRoute: (context) => SignInScreen(),
         // RegistrationScreen.screenRoute: (context) => RegistrationScreen(),
@@ -100,3 +133,19 @@ class _MyAppState extends State<MyApp> {
   }
 }
 //FirebaseAuth.instance.currentUser==null?OnBordingScreen(): MainScreen(),
+
+
+
+Future<int> populateSourceWords() async {
+  final ref = FirebaseStorage.instance.ref();
+  final all = await ref.listAll();
+
+  for (var item in all.items) {
+    sourceWords.add(Word(
+        text: item.name.substring(0, item.name.indexOf('.')),
+        url: await item.getDownloadURL(),
+        displayText: false));
+  }
+
+  return 1;
+}
