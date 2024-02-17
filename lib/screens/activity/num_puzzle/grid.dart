@@ -11,7 +11,7 @@ Function onClick;
     // height:MediaQuery.of(context).size.height*0.10 ,
     // width: MediaQuery.of(context).size.width*0.5,
     return Container(
-      height:250 ,
+      height:280,
       width: 250,
       child: GridView.builder(
         itemCount: number.length,
@@ -24,14 +24,14 @@ Function onClick;
             onClick(index);
           },
           child: Card(
-            color: Colors.blue,
+            color: Color(0xFF579D9A),
             shape: RoundedRectangleBorder(
                 borderRadius: BorderRadius.circular(8)
             ),
             elevation: 10,
             child: Container(
               decoration: BoxDecoration(
-                color: Colors.blue,
+                color:Color(0xFF579D9A),
                 borderRadius: BorderRadius.circular(8)
               ),
               height: 100,

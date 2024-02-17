@@ -132,7 +132,9 @@ class _OnBordingScreenState extends State<OnBordingScreen> {
                     child: Padding(
                       padding: EdgeInsets.symmetric(horizontal: 40, vertical: 15),
                       child: Text(
-                        currentIndex == contents.length - 1 ? "Get Started" : "Next",
+                        currentIndex == contents.length - 1 ? "Get Started" : "Next",style:TextStyle(
+                        color: Colors.white
+                      )
                       ),
                     ),
                   ),

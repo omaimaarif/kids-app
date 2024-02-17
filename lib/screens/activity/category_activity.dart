@@ -1,7 +1,8 @@
 import 'package:another_final_kids_app/cards/home_page_card.dart';
-import 'package:another_final_kids_app/screens/activity/dragDrop.dart';
-import 'package:another_final_kids_app/screens/activity/some_widget/education_activity.dart';
-import 'package:another_final_kids_app/screens/activity/some_widget/sorting_and_drag.dart';
+import 'package:another_final_kids_app/screens/activity/sections_of_activity/express_emotion.dart';
+import 'package:another_final_kids_app/screens/activity/sorting_drag_select/dragDrop.dart';
+import 'package:another_final_kids_app/screens/activity/sections_of_activity/education_activity.dart';
+import 'package:another_final_kids_app/screens/activity/sections_of_activity/sorting_and_drag.dart';
 import 'package:another_final_kids_app/tile/my_list_tile.dart';
 import 'package:flutter/material.dart';
 
@@ -18,7 +19,7 @@ class _CategoryActivityState extends State<CategoryActivity> {
     return DefaultTabController(
       length: 4,
       child: Scaffold(
-        backgroundColor: Color(0xFF143233),
+        backgroundColor: Color(0xFFE9EDEE),
         appBar: AppBar(
           backgroundColor: Colors.transparent,
           elevation: 0,
@@ -46,7 +47,7 @@ class _CategoryActivityState extends State<CategoryActivity> {
                   ),
                   labelPadding: EdgeInsets.symmetric(horizontal: 20),
                   tabs: [
-                    Tab(text:"Select and Drop",),
+                    Tab(text:"Organize",),
                     Tab(text:"Education",),
                     Tab(text:"Express Your Feelings",),
 
@@ -61,7 +62,7 @@ class _CategoryActivityState extends State<CategoryActivity> {
                       children: [
                         SortAndDrag(),
                         EducationActivity(),
-                        Container(color: Colors.white,),
+                        ExpressEmotions(),
                       ],
                     )),
               ],

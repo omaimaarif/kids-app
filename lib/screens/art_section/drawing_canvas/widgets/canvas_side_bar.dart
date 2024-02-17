@@ -279,7 +279,12 @@ class CanvasSideBar extends HookWidget {
                     child: const Text('Export PNG'),
                     onPressed: () async {
                       Uint8List? pngBytes = await getBytes();
-                      if (pngBytes != null) saveFile(pngBytes, 'png');
+                      if (pngBytes != null){
+                        saveFile(pngBytes, 'png');
+                        print("Export done");
+
+                      }
+
                     },
                   ),
                 ),
@@ -304,13 +309,11 @@ class CanvasSideBar extends HookWidget {
   }
 
   void saveFile(Uint8List bytes, String extension) async {
-
-    String fileName = 'FlutterLetsDraw-${DateTime.now().toIso8601String()}.$extension';
-
     if (kIsWeb) {
       html.AnchorElement()
         ..href = '${Uri.dataFromBytes(bytes, mimeType: 'image/$extension')}'
-        ..download = fileName
+        ..download =
+            'FlutterLetsDraw-${DateTime.now().toIso8601String()}.$extension'
         ..style.display = 'none'
         ..click();
     } else {
@@ -321,8 +324,8 @@ class CanvasSideBar extends HookWidget {
         mimeType: extension == 'png' ? MimeType.png : MimeType.jpeg,
       );
     }
-  }
 
+  }
   Future<ui.Image> get _getImage async {
     final completer = Completer<ui.Image>();
     if (!kIsWeb && !Platform.isAndroid && !Platform.isIOS) {
@@ -378,6 +381,7 @@ class CanvasSideBar extends HookWidget {
     return pngBytes;
   }
 }
+
 
 class _IconBox extends StatelessWidget {
   final IconData? iconData;

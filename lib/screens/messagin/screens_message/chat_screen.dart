@@ -53,7 +53,6 @@ class _ChatScreenState extends State<ChatScreen> {
           children: [
             Image.asset('lib/assets/user.png', height: 40),
 
-
           ],
         ),
         actions: [

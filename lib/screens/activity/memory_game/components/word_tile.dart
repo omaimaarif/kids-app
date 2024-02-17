@@ -46,11 +46,11 @@ class WordTile extends StatelessWidget {
                     padding: const EdgeInsets.all(16),
                     child: word.displayText
                         ? FittedBox(
-                        fit: BoxFit.scaleDown,
-                        child: Transform(
-                            alignment: Alignment.center,
-                            transform: Matrix4.rotationY(pi),
-                            child: Text(word.text)))
+                            fit: BoxFit.scaleDown,
+                            child: Transform(
+                                alignment: Alignment.center,
+                                transform: Matrix4.rotationY(pi),
+                                child: Text(word.text)))
                         : Image.network(word.url)),
               ),
             ),

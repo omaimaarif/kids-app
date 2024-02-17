@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 
 import '../../../../main.dart';
 import '../animation/spin_animation.dart';
+import '../pages/main_of_memory_game.dart';
 
 
 const messages = ['Awesome!', 'Fantastic!', 'Nice!', 'Great!'];
@@ -34,11 +35,13 @@ class ReplayPopUp extends StatelessWidget {
               width: double.infinity,
               child: ElevatedButton(
                   onPressed: () {
-                    Navigator.pushAndRemoveUntil(
-                        context,
-                        PageRouteBuilder(
-                            pageBuilder: (_, __, ___) => const MyApp()),
-                        (route) => false);
+
+                   Navigator.of(context).pushNamed('memory_game');
+                    // Navigator.pushAndRemoveUntil(
+                    //     context,
+                    //     PageRouteBuilder(
+                    //         pageBuilder: (_, __, ___) => const Main_of_memory_game()),
+                    //     (route) => false);
                   },
                   child: const Padding(
                     padding: EdgeInsets.all(8.0),

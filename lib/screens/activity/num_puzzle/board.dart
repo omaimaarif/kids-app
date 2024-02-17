@@ -28,8 +28,8 @@ class _boardState extends State<board> {
         children: [
           SizedBox(height: 60,),
           Text(numberOfMoves.toString()+" Moves | 8 Tiles",
-            style:GoogleFonts.roboto(
-                color: Colors.blue,
+            style:GoogleFonts.courgette(
+                color: Color(0xFF579D9A),
                 fontSize: 25,
                 fontWeight: FontWeight.bold
             ) ,
@@ -37,11 +37,19 @@ class _boardState extends State<board> {
           SizedBox(height: 20,),
           // ImageDisplay("lib/assets/woolly-fly.png"),
           Center(child: grid(number, onClick)),
-          SizedBox(height: 80,),
+          SizedBox(height: 60,),
 
            Align(
-             alignment: Alignment.centerRight,
-               child: ImageDisplay("lib/assets/for_activity/goose_active.png")),
+             alignment: Alignment.centerLeft,
+               child: ImageDisplay('lib/assets/for_activity/robot-with-heart.png')),
+
+          // ElevatedButton(onPressed: (){
+          //   checkWinner()
+          // },
+          //
+          //     child: Text("check"))
+
+
 
         ],
       ),

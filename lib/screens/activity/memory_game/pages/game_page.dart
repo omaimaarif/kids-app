@@ -1,4 +1,6 @@
+import 'package:firebase_storage/firebase_storage.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:provider/provider.dart';
 import '../../../../main.dart';
 import '../animation/confetti_animation.dart';
@@ -59,7 +61,8 @@ class _GamePageState extends State<GamePage> {
                     decoration: const BoxDecoration(
                         image: DecorationImage(
                             fit: BoxFit.fill,
-                            image: AssetImage('lib/assets/images_of_memorygame/Cloud.png'))),
+                            image: AssetImage(
+                                'lib/assets/images_of_memorygame/Cloud.png'))),
                   ),
                   SafeArea(
                     child: Center(
@@ -92,6 +95,7 @@ class _GamePageState extends State<GamePage> {
     );
   }
 
+
   _setUp() {
     sourceWords.shuffle();
     for (int i = 0; i < 3; i++) {
@@ -112,4 +116,6 @@ class _GamePageState extends State<GamePage> {
 
     return 1;
   }
+
+
 }

@@ -102,7 +102,7 @@ class _LoginFormState extends State<LoginForm> {
                                    btnIcon:Icons.mobile_friendly_rounded ,
                                    onTap:(){} ,
                                    title: "Recover via Phone Number",
-                                   subTitle:"Recover Password via Phone Number" ,
+                                   subTitle:"Recover Password Phone Number" ,
                                  )
 
                                ],
