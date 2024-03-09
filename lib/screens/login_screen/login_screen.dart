@@ -45,7 +45,7 @@ class _LoginScreenState extends State<LoginScreen> {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            SizedBox(height: 50),
+            SizedBox(height: 100),
         Padding(
           padding: const EdgeInsets.only(left: 20),
           child: Text(
@@ -124,13 +124,15 @@ class _LoginScreenState extends State<LoginScreen> {
                       TextSpan(
                         text: "Don't have an account?",
                         style: TextStyle(
-                          color: Colors.black45
+                          color: Colors.black45,
+                          fontSize: 17
                         ),
                         children: [
                           TextSpan(
                             text: "Sign up",
                             style: TextStyle(
-                              color: Colors.blue,
+                              color: Color(0xFF599099),
+                              fontSize: 15
                             ),
                           ),
                         ],

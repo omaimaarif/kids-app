@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
+import 'package:google_fonts/google_fonts.dart';
 import '../../activity/category_activity.dart';
 import '../drawing_page.dart';
 
@@ -31,17 +32,18 @@ class _WelcomToArtSectionState extends State<WelcomToArtSection> {
             Column(
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
-                SizedBox(height: 150,),
+                SizedBox(height: 180,),
 
                 Text("Start your artistic adventure\n And enjoy your time in the world of colors",
                   textAlign: TextAlign.center,
-                  style:TextStyle(fontSize: 24,
-                    fontWeight: FontWeight.w500,
-                    color: Colors.blueGrey,) ,),
+                    style:GoogleFonts.aBeeZee(
+                      fontWeight: FontWeight.normal,
+                      fontSize: 18.0,color:Color(0xFF688382) ,
+                    )),
 
-                SizedBox(height: 100,),
+                SizedBox(height: 150,),
                 Image(image: AssetImage("lib/assets/images_paint/drawing (3).png"),
-                  width: 200,
+                  width: 270,
                   alignment: Alignment.bottomCenter,),
               ],
             ),
@@ -51,6 +53,7 @@ class _WelcomToArtSectionState extends State<WelcomToArtSection> {
               (
               color: Color(0xFFEABE7B),
               size: 50.0,
+              duration: Duration(milliseconds: 2000),
             ),
           ],
         ),

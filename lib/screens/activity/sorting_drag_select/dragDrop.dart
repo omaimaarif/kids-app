@@ -47,7 +47,7 @@ class _DragDropState extends State<DragDrop> {
               color: Colors.blueGrey)
         ),
         SizedBox(
-          height: 20,
+          height: 40,
         ),
         Wrap(
           alignment: WrapAlignment.center,
@@ -73,7 +73,7 @@ class _DragDropState extends State<DragDrop> {
                   )),
         ),
         const SizedBox(
-          height: 10,
+          height: 40,
         ),
         Divider(
           thickness: 1, // thickness of the line
@@ -83,7 +83,7 @@ class _DragDropState extends State<DragDrop> {
           height: 10,
         ),
         const SizedBox(
-          height: 20,
+          height: 40,
         ),
         Wrap(
           alignment: WrapAlignment.center,
@@ -109,7 +109,7 @@ class _DragDropState extends State<DragDrop> {
                   )),
         ),
         const SizedBox(
-          height: 35,
+          height: 70,
         ),
         ElevatedButton(
           onPressed: () {
@@ -141,9 +141,9 @@ class _DragDropState extends State<DragDrop> {
                     elevation: 0,
 
                   )
-              );
+              ); return;
             }
-            if (check == widget.questionModel.answers.length) {
+            else if (check == widget.questionModel.answers.length) {
               for (int i = 0; i < widget.questionModel.answers.length; i++) {
                 if (answer[i]['text'] != randomAnswer[i]) {
                   c = false;
@@ -152,6 +152,7 @@ class _DragDropState extends State<DragDrop> {
               }
             } else {
               return;
+
             }
             widget.next(c);
           },
@@ -226,7 +227,7 @@ class _DragDropState extends State<DragDrop> {
                         width: 150,
                       ),
                 SizedBox(
-                  height: 40,
+                  height: 20,
                 ),
                 IgnorePointer(
                     child: Center(

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 class Button_for_chat_screens extends StatelessWidget {
   Button_for_chat_screens({required this.color, required this.title, required this.onPressed});
@@ -21,7 +22,11 @@ class Button_for_chat_screens extends StatelessWidget {
           height: 40,
           child: Text(
             title,
-            style: TextStyle(color: Colors.white),
+            style: GoogleFonts.aBeeZee(
+                color: Colors.white,
+                    fontSize: 18,
+              fontWeight: FontWeight.normal
+            ),
           ),
         ),
       ),

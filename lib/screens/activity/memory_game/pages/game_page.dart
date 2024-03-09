@@ -55,36 +55,47 @@ class _GamePageState extends State<GamePage> {
                 },
               );
 
-              return Stack(
-                children: [
-                  Container(
-                    decoration: const BoxDecoration(
-                        image: DecorationImage(
-                            fit: BoxFit.fill,
-                            image: AssetImage(
-                                'lib/assets/images_of_memorygame/Cloud.png'))),
-                  ),
-                  SafeArea(
-                    child: Center(
-                      child: GridView.builder(
-                          shrinkWrap: true,
-                          padding: EdgeInsets.only(
-                              left: widthPadding, right: widthPadding),
-                          itemCount: 6,
-                          gridDelegate:
-                              SliverGridDelegateWithFixedCrossAxisCount(
-                                  crossAxisCount: 3,
-                                  crossAxisSpacing: 10,
-                                  mainAxisSpacing: 10,
-                                  mainAxisExtent: size.height * 0.38),
-                          itemBuilder: (context, index) => WordTile(
-                                index: index,
-                                word: _gridWords[index],
-                              )),
+              return Scaffold(
+                backgroundColor:Color(0xFF82B3E3) ,
+                appBar: AppBar(
+                    backgroundColor: Colors.transparent,
+                    elevation: 0,
+                    leading:  IconButton(onPressed: (){
+                      Navigator.of(context).pushNamed("CategoryActivity");
+                    },
+                      icon:Icon(Icons.arrow_back_ios),color: Colors.white,)
+                ),
+                body: Stack(
+                  children: [
+                    Container(
+                      decoration: const BoxDecoration(
+                          image: DecorationImage(
+                              fit: BoxFit.fill,
+                              image: AssetImage(
+                                  'lib/assets/images_of_memorygame/Cloud.png'))),
                     ),
-                  ),
-                  ConfettiAnimation(animate: roundCompleted)
-                ],
+                    SafeArea(
+                      child: Center(
+                        child: GridView.builder(
+                            shrinkWrap: true,
+                            padding: EdgeInsets.only(
+                                left: widthPadding, right: widthPadding),
+                            itemCount: 6,
+                            gridDelegate:
+                                SliverGridDelegateWithFixedCrossAxisCount(
+                                    crossAxisCount: 3,
+                                    crossAxisSpacing: 10,
+                                    mainAxisSpacing: 10,
+                                    mainAxisExtent: size.height * 0.38),
+                            itemBuilder: (context, index) => WordTile(
+                                  index: index,
+                                  word: _gridWords[index],
+                                )),
+                      ),
+                    ),
+                    ConfettiAnimation(animate: roundCompleted)
+                  ],
+                ),
               );
             },
           );

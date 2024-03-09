@@ -6,14 +6,13 @@ import '../../../../main.dart';
 import '../animation/spin_animation.dart';
 import '../pages/main_of_memory_game.dart';
 
-
 const messages = ['Awesome!', 'Fantastic!', 'Nice!', 'Great!'];
-
 class ReplayPopUp extends StatelessWidget {
   const ReplayPopUp({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
+
     final r = Random().nextInt(messages.length);
     String message = messages[r];
 
@@ -35,8 +34,7 @@ class ReplayPopUp extends StatelessWidget {
               width: double.infinity,
               child: ElevatedButton(
                   onPressed: () {
-
-                   Navigator.of(context).pushNamed('memory_game');
+                   Navigator.of(context).pushReplacementNamed("memory_game");
                     // Navigator.pushAndRemoveUntil(
                     //     context,
                     //     PageRouteBuilder(
@@ -44,6 +42,7 @@ class ReplayPopUp extends StatelessWidget {
                     //     (route) => false);
                   },
                   child: const Padding(
+
                     padding: EdgeInsets.all(8.0),
                     child: Text('Replay!'),
                   )))

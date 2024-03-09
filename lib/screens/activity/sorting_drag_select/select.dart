@@ -70,7 +70,7 @@ class _SelectState extends State<Select> {
               ),
             ),
           ),
-          SizedBox(height: 90),
+          SizedBox(height: 80),
           ElevatedButton(
             onPressed: () {
               if (select == -1) {

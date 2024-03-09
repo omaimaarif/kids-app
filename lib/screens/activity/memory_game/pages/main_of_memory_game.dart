@@ -28,7 +28,9 @@ class _Main_of_memory_gameState extends State<Main_of_memory_game> {
   }
   @override
   Widget build(BuildContext context) {
-    return FutureBuilder(future: populateSourceWords(),
+    return FutureBuilder(
+
+      future: populateSourceWords(),
       builder: (context, snapshot) {
         if (snapshot.hasError) {
           return ErrorPage();

@@ -85,13 +85,13 @@ class _MainScreenState extends State<MainScreen> {
                   padding: const EdgeInsets.symmetric(horizontal: 25.0),
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [],
+
                   ),
                 ),
                 SizedBox(height: 20),
                 //Cards
                 Container(
-                  height: 200,
+                  height: 210,
                   child: PageView(
                     scrollDirection: Axis.horizontal,
                     controller: _controller,
@@ -102,13 +102,13 @@ class _MainScreenState extends State<MainScreen> {
                         color: Color(0xD2E2B56E),
                       ),
                       MyCard(
-                        imagePathe: "lib/assets/icons/art.png",
-                        title: "Inspiring Colors\nand Creativity",
+                        imagePathe: "lib/assets/main_commu.png",
+                        title: "Messages ignite\nsensory creativity",
                         color: Color(0x4F6D9EA8),
                       ),
                       MyCard(
-                          imagePathe: "lib/assets/icons/connection.png",
-                          title: "Messages ignite\nsensory creativity",
+                          imagePathe: "lib/assets/icons/art.png",
+                          title: "Inspiring Colors\nand Creativity",
                           color: Color(0x89DDB3B5))
                     ],
                   ),
@@ -120,7 +120,7 @@ class _MainScreenState extends State<MainScreen> {
                   controller: _controller,
                   count: 3,
                   effect:
-                      ExpandingDotsEffect(activeDotColor: Color(0xE5C48E94)),
+                      ExpandingDotsEffect(activeDotColor: Colors.white70),
                 ),
                 SizedBox(
                   height: 20,
@@ -142,9 +142,9 @@ class _MainScreenState extends State<MainScreen> {
                         height: 10,
                       ),
                       MyListTile(
-                        height_image: 50,
-                        height_tile: 100,
-                        ImageIconPath: "lib/assets/icons/puzzle.png",
+                        height_image: 60,
+                        height_tile: 120,
+                        ImageIconPath: "lib/assets/white-puzzle-piece.png",
                         tileName: "Activities",
                         subtile: "plenty of activities",
                         pressedButton: () {
@@ -160,8 +160,8 @@ class _MainScreenState extends State<MainScreen> {
                             Navigator.of(context)
                                 .pushNamed("welcome_to_art_section");
                           },
-                          height_image: 50,
-                          height_tile: 100,
+                          height_image: 60,
+                          height_tile: 120,
                           ImageIconPath: "lib/assets/icons/palette.png",
                           subtile: " let's paint here",
                           tileName: "Drawing"),

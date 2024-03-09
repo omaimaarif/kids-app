@@ -1,3 +1,6 @@
+import 'package:another_final_kids_app/screens/activity/category_activity.dart';
+import 'package:another_final_kids_app/screens/activity/sections_of_activity/education_activity.dart';
+import 'package:another_final_kids_app/screens/activity/sections_of_activity/sorting_and_drag.dart';
 import 'package:another_final_kids_app/screens/activity/sorting_drag_select/activity_screen.dart';
 import 'package:another_final_kids_app/screens/activity/sorting_drag_select/dragDrop.dart';
 import 'package:another_final_kids_app/screens/activity/math_game/math_game_home.dart';
@@ -16,6 +19,7 @@ import 'package:another_final_kids_app/screens/art_section/welcome/welcome_to_ar
 import 'package:another_final_kids_app/screens/chatterbox/call.dart';
 import 'package:another_final_kids_app/screens/chatterbox/homecall.dart';
 import 'package:another_final_kids_app/screens/chatterbox/login.dart';
+import 'package:another_final_kids_app/screens/emotions/emotions_detection/main_emotions_detection.dart';
 import 'package:another_final_kids_app/screens/emotions/main_emotions.dart';
 import 'package:another_final_kids_app/screens/home_page/home_screen.dart';
 import 'package:another_final_kids_app/screens/login_screen/login_screen.dart';
@@ -32,6 +36,7 @@ import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:provider/provider.dart' as meem;
 
@@ -82,6 +87,7 @@ class _MyAppState extends State<MyApp> {
         "signup": (context) => SignUpScreen(),
         "splash": (context) => OnBordingScreen(),
         "emotions": (context) => EmotionsPage(),
+        "facedetector": (context) => EmotionFaceDetector(),
         "sign_up": (context) => SignUpScreen(),
         "login": (context) => LoginScreen(),
         "sideMenu": (context) => SideMenu(),
@@ -90,6 +96,7 @@ class _MyAppState extends State<MyApp> {
         "activity": (context) => activityScreen(),
         "draw": (context) => DrawingPage(),
         "Math": (context) => MathGame(),
+        "CategoryActivity": (context) => CategoryActivity(),
         "welcome_to_art_section": (context) => WelcomToArtSection(),
         "home_call": (context) => HomeCall(),
         "chatterbox": (context) => LoginCall(),
@@ -129,3 +136,10 @@ class _MyAppState extends State<MyApp> {
 //
 //   return 1;
 // }
+
+//
+// GetMaterialApp(
+// debugShowCheckedModeBanner: false,
+// home: FirebaseAuth.instance.currentUser == null
+// ? OnBordingScreen()
+//     : MainScreen(),

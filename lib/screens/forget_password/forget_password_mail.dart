@@ -21,7 +21,7 @@ class ForgetPasswordMailScreen extends StatelessWidget {
                 image:
                 AssetImage("lib/assets/forget.png"),width: 150,height: 150,),
               SizedBox(height: 20),
-              Text("Yo! Forgot your password?", style: TextStyle(fontSize: 25,fontWeight: FontWeight.bold)),
+              Text("Forgot your password?", style: TextStyle(fontSize: 25,fontWeight: FontWeight.bold)),
               SizedBox(height: 10),
               Text("No worries! Enter your email and we will send you a reset", style: Theme.of(context).textTheme.bodyLarge,
                   textAlign: TextAlign.center),
@@ -34,7 +34,8 @@ class ForgetPasswordMailScreen extends StatelessWidget {
                     decoration: InputDecoration(
                       label: Text(email_forget),
                       hintText: "Email",
-                      prefixIcon: Icon(Icons.mail_outline_rounded),
+                      prefixIcon: Icon(Icons.mail_outline_rounded,),
+
                     ),
                   ),
                   SizedBox(height: 20),

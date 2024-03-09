@@ -11,8 +11,8 @@ Function onClick;
     // height:MediaQuery.of(context).size.height*0.10 ,
     // width: MediaQuery.of(context).size.width*0.5,
     return Container(
-      height:280,
-      width: 250,
+      height:MediaQuery.of(context).size.height/2,
+      width: MediaQuery.of(context).size.width*0.8,
       child: GridView.builder(
         itemCount: number.length,
           gridDelegate:  SliverGridDelegateWithFixedCrossAxisCount(
@@ -41,7 +41,7 @@ Function onClick;
                   child: Text(number[index].toString(),
                   style:GoogleFonts.roboto(
                     color: Colors.white,
-                    fontSize: 35,
+                    fontSize: 40,
                     fontWeight: FontWeight.bold
                   ) ,
                   ),

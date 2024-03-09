@@ -45,9 +45,9 @@ List<RiveAsset> sideMenu2=[
     artboard: "TIMER",
     stateMachineName: "TIMER_Interactivity",
     title: "History",),
-
-  RiveAsset("lib/assets/icons/rive icons/iconsrive.riv",
-    artboard: "BELL",
-    stateMachineName: "BELL",
-    title: "Notification",),
+  //
+  // RiveAsset("lib/assets/icons/rive icons/iconsrive.riv",
+  //   artboard: "BELL",
+  //   stateMachineName: "BELL",
+  //   title: "Notification",),
 ];

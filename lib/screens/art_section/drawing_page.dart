@@ -1,6 +1,7 @@
 import 'dart:ui';
 import 'package:flutter/material.dart' hide Image;
 import 'package:flutter_hooks/flutter_hooks.dart';
+import 'package:google_fonts/google_fonts.dart';
 import '../../main.dart';
 import 'drawing_canvas/drawing_canvas.dart';
 import 'drawing_canvas/models/drawing_mode.dart';
@@ -109,13 +110,12 @@ class _CustomAppBar extends StatelessWidget {
               },
               icon: const Icon(Icons.menu),
             ),
-            const Text(
+             Text(
               'Let\'s Draw',
-              style: TextStyle(
-                color: Colors.blueGrey,
-                fontWeight: FontWeight.bold,
-                fontSize: 19,
-              ),
+          style: GoogleFonts.aBeeZee(
+            color: Colors.blueGrey,
+            fontSize: 20,
+          ),
             ),
             const SizedBox.shrink(),
           ],

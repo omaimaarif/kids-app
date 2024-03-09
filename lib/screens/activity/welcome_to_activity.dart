@@ -32,11 +32,11 @@ body: SizedBox(
       Column(
 crossAxisAlignment: CrossAxisAlignment.center,
         children: [
-          SizedBox(height: 150,),
+          SizedBox(height: 180,),
 
           Text("Enter a realm of fun and delight, waiting just seconds away..",
             textAlign: TextAlign.center,
-            style:GoogleFonts.courgette(
+            style:GoogleFonts.aBeeZee(
               fontWeight: FontWeight.normal,
               fontSize: 18.0,color:Color(0xFF688382) ,
             )),
@@ -45,9 +45,9 @@ crossAxisAlignment: CrossAxisAlignment.center,
   // style:TextStyle(fontSize: 24,
   //   fontWeight: FontWeight.w500,
   //   color: Colors.blueGrey,) ,),
-          SizedBox(height: 100,),
+          SizedBox(height: 150,),
           Image(image: AssetImage("lib/assets/come-back.png"),
-            width: 200,
+            width: 260,
             alignment: Alignment.bottomCenter,),
         ],
       ),
@@ -57,6 +57,8 @@ crossAxisAlignment: CrossAxisAlignment.center,
         (
        color: Color(0xFFEABE7B),
        size: 50.0,
+       duration: Duration(milliseconds: 2000),
+
       ),
     ],
   ),

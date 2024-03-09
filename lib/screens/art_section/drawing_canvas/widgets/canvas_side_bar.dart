@@ -55,7 +55,8 @@ class CanvasSideBar extends HookWidget {
     final scrollController = useScrollController();
     return Container(
       width: 300,
-      height: MediaQuery.of(context).size.height < 680 ? 450 : 610,
+      height: MediaQuery.of(context).size.height,
+      //height: MediaQuery.of(context).size.height < 680 ? 500 : 610,
       decoration: BoxDecoration(
         color: Colors.white,
         borderRadius: const BorderRadius.horizontal(right: Radius.circular(10)),
@@ -78,7 +79,7 @@ class CanvasSideBar extends HookWidget {
             const SizedBox(height: 10),
             const Text(
               'Shapes',
-              style: TextStyle(fontWeight: FontWeight.bold),
+              style: TextStyle(fontWeight: FontWeight.bold, color: Colors.black54),
             ),
             const Divider(),
             Wrap(
@@ -141,7 +142,7 @@ class CanvasSideBar extends HookWidget {
               children: [
                 const Text(
                   'Fill Shape: ',
-                  style: TextStyle(fontSize: 12),
+                  style: TextStyle(  fontSize: 12,color: Colors.black54,),
                 ),
                 Checkbox(
                   value: filled.value,
@@ -177,7 +178,7 @@ class CanvasSideBar extends HookWidget {
             const SizedBox(height: 10),
             const Text(
               'Colors',
-              style: TextStyle(fontWeight: FontWeight.bold),
+              style: TextStyle(fontWeight: FontWeight.bold,color: Colors.black54,),
             ),
             const Divider(),
             ColorPalette(
@@ -186,14 +187,14 @@ class CanvasSideBar extends HookWidget {
             const SizedBox(height: 20),
             const Text(
               'Size',
-              style: TextStyle(fontWeight: FontWeight.bold),
+              style: TextStyle(fontWeight: FontWeight.bold,color: Colors.black54,),
             ),
             const Divider(),
             Row(
               children: [
                 const Text(
                   'Stroke Size: ',
-                  style: TextStyle(fontSize: 12),
+                  style: TextStyle(fontSize: 12,color: Colors.black54,),
                 ),
                 Slider(
                   value: strokeSize.value,
@@ -209,7 +210,7 @@ class CanvasSideBar extends HookWidget {
               children: [
                 const Text(
                   'Eraser Size: ',
-                  style: TextStyle(fontSize: 12),
+                  style: TextStyle(fontSize: 12,color: Colors.black54,),
                 ),
                 Slider(
                   value: eraserSize.value,
@@ -224,7 +225,7 @@ class CanvasSideBar extends HookWidget {
             const SizedBox(height: 20),
             const Text(
               'Actions',
-              style: TextStyle(fontWeight: FontWeight.bold),
+              style: TextStyle(fontWeight: FontWeight.bold,color: Colors.black54,),
             ),
             const Divider(),
             Wrap(
@@ -233,7 +234,7 @@ class CanvasSideBar extends HookWidget {
                   onPressed: allSketches.value.isNotEmpty
                       ? () => undoRedoStack.value.undo()
                       : null,
-                  child: const Text('Undo'),
+                  child: const Text('Undo', style: TextStyle(color: Colors.black54,),),
                 ),
                 ValueListenableBuilder<bool>(
                   valueListenable: undoRedoStack.value._canRedo,
@@ -268,7 +269,7 @@ class CanvasSideBar extends HookWidget {
             const SizedBox(height: 20),
             const Text(
               'Export',
-              style: TextStyle(fontWeight: FontWeight.bold),
+              style: TextStyle(fontWeight: FontWeight.bold,color: Colors.black54,),
             ),
             const Divider(),
             Row(

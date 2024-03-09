@@ -13,7 +13,7 @@ class _EmotionsPageState extends State<EmotionsPage> {
   String feel = "0";
   double _value = 0.0;
   double lastsection = 0.0;
-  String feedbacktxt = "Very Poor";
+  String feedbacktxt = "Miserable";
   Color backgroundclr = Color(0xFF8CB9BD);
   @override
   Widget build(BuildContext context) {
@@ -64,7 +64,7 @@ class _EmotionsPageState extends State<EmotionsPage> {
                       setState(() {
                         lastsection = 0.0;
                         backgroundclr = Color(0xFF8CB9BD);
-                        feedbacktxt = "Very Poor";
+                        feedbacktxt = "Miserable";
                       });
                     }
                     if (_value > 0.0 && _value < 25.0) {
@@ -80,7 +80,7 @@ class _EmotionsPageState extends State<EmotionsPage> {
                       setState(() {
                         lastsection = 25.0;
                         backgroundclr = Colors.yellow;
-                        feedbacktxt = "Poor";
+                        feedbacktxt = "Bad";
                       });
                     } else if (_value >= 25.0 && _value < 50.0) {
                       if (lastsection == 25.0) {
@@ -120,7 +120,7 @@ class _EmotionsPageState extends State<EmotionsPage> {
                       }
                       setState(() {
                         lastsection = 100.0;
-                        backgroundclr = Color(0xFF65B741);
+                        backgroundclr = Color(0xFF80E55A);
                         feedbacktxt = "Excellent";
 
                         if (lastsection == 100.0) {

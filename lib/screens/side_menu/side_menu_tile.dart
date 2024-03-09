@@ -33,7 +33,7 @@ final bool isActive;
               height: 56,width: isActive? 288:0,
               left: 0,
               child: Container(
-                decoration: BoxDecoration(color: Color(0xFF6792FF),
+                decoration: BoxDecoration(color: Color(0xFF486470),
                 borderRadius: BorderRadius.all(Radius.circular(10))),
               ),
             ),

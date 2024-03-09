@@ -18,7 +18,7 @@ class _winState extends State<win> {
             image: AssetImage("lib/assets/p (2).png"),
           ),
         ),
-        SizedBox(height: 60,),
+        SizedBox(height: 40,),
         Column(
           children: [
                   FittedBox(

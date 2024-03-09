@@ -13,19 +13,19 @@ class UnbordingContent {
 List<UnbordingContent> contents = [
   UnbordingContent(
     title: "Hi, I'm Pippa!",
-    image: 'lib/assets/woolly-panda-1.png',
+    image: 'lib/assets/for_activity/robot (1).png',
     discription:
-    " Let's scroll across to meet our other friends",
+    " Let's scroll across to meet my friends",
   ),
   UnbordingContent(
     title: "And I'm Polar",
     image: 'lib/assets/woolly-at-the-sea.png',
-    discription: "I have a boat full of colorful ideas",
+    discription: "let's start our adventure together",
   ),
-  UnbordingContent(
-    title: 'Finally, here you are! ',
-    image: 'lib/assets/woolly-pearl.png',
-    discription:
-    "I'm Max, let's start our adventure together",
-  ),
+  // UnbordingContent(
+  //   title: 'Finally, here you are! ',
+  //   image: 'lib/assets/for_activity/penguin (1).png',
+  //   discription:
+  //   "I'm Max, let's start our adventure together",
+  // ),
 ];

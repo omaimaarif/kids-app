@@ -37,27 +37,30 @@ class _OnBordingScreenState extends State<OnBordingScreen> {
       body: SafeArea(
         child: Column(
           children: [
-            const SizedBox(height: 20,),
-             Padding(
+            const SizedBox(
+              height: 20,
+            ),
+            Padding(
               padding: EdgeInsets.symmetric(horizontal: 10),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.end,
                 children: [
                   TextButton(
-                   onPressed: () {
-                     Navigator.push(
-                       context,
-                       MaterialPageRoute(builder: (context) => LoginScreen()),
-                     );
-                   },
-                   child: Text(
-                     "Skip", style: GoogleFonts.akshar(
-                     fontWeight: FontWeight.normal,
-                     fontSize: 18.0,
-                     color:Color(0xFF688382) ,
-                   ),
-                   )
-                  ),
+                      onPressed: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => LoginScreen()),
+                        );
+                      },
+                      child: Text(
+                        "Skip",
+                        style: GoogleFonts.aBeeZee(
+                          fontWeight: FontWeight.normal,
+                          fontSize: 18.0,
+                          color: Color(0xFF688382),
+                        ),
+                      )),
                 ],
               ),
             ),
@@ -66,33 +69,40 @@ class _OnBordingScreenState extends State<OnBordingScreen> {
               child: PageView.builder(
                 controller: pageController,
                 itemCount: contents.length,
-                onPageChanged: (value){
+                onPageChanged: (value) {
                   setState(() {
                     currentIndex = value;
                   });
                 },
-                itemBuilder: (context, index){
+                itemBuilder: (context, index) {
                   return Padding(
                     padding: const EdgeInsets.all(20.0),
                     child: Column(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
-                        Image.asset(contents[index].image, height: 300, width: 300,),
-                        SizedBox(height: 20,),
+                        Image.asset(
+                          contents[index].image,
+                          height: 300,
+                          width: 300,
+                        ),
+                        SizedBox(
+                          height: 20,
+                        ),
                         Text(
                           contents[index].title,
                           textAlign: TextAlign.center,
-                          style:  GoogleFonts.courgette(
-                            fontSize: 30.0,
-                            color:Color(0xFF9A5F42) ,
-                            fontWeight: FontWeight.bold
-                          ),
+                          style: GoogleFonts.courgette(
+                              fontSize: 30.0,
+                              color: Color(0xFF6CA3AC),
+                              fontWeight: FontWeight.bold),
                         ),
-                         SizedBox(height: 10,),
+                        SizedBox(
+                          height: 10,
+                        ),
                         Text(
                           contents[index].discription,
                           textAlign: TextAlign.center,
-                          style:  GoogleFonts.akshar(
+                          style: GoogleFonts.aBeeZee(
                             fontSize: 16,
                             color: Colors.black26,
                             fontWeight: FontWeight.w500,
@@ -114,7 +124,8 @@ class _OnBordingScreenState extends State<OnBordingScreen> {
                       if (currentIndex == contents.length - 1) {
                         Navigator.push(
                           context,
-                          MaterialPageRoute(builder: (context) => const LoginScreen()),
+                          MaterialPageRoute(
+                              builder: (context) => const LoginScreen()),
                         );
                       } else {
                         pageController!.nextPage(
@@ -127,15 +138,19 @@ class _OnBordingScreenState extends State<OnBordingScreen> {
                       shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(20),
                       ),
-                      primary: const Color(0xDF5D7A7C),
+                      primary: const Color(0xFF599099),
                     ),
                     child: Padding(
-                      padding: EdgeInsets.symmetric(horizontal: 40, vertical: 15),
+                      padding:
+                          EdgeInsets.symmetric(horizontal: 40, vertical: 15),
                       child: Text(
-                        currentIndex == contents.length - 1 ? "Get Started" : "Next",style:TextStyle(
-                        color: Colors.white
-                      )
-                      ),
+                          currentIndex == contents.length - 1
+                              ? "Get Started"
+                              : "Next",
+                          style: GoogleFonts.aBeeZee(
+                              color: Colors.white,fontWeight: FontWeight.bold
+
+                          )),
                     ),
                   ),
                   const Spacer(),
@@ -143,7 +158,7 @@ class _OnBordingScreenState extends State<OnBordingScreen> {
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: List.generate(
                       contents.length,
-                          (index) => Dot(index, context),
+                      (index) => Dot(index, context),
                     ),
                   ),
                   const Spacer(),
@@ -155,7 +170,8 @@ class _OnBordingScreenState extends State<OnBordingScreen> {
       ),
     );
   }
-  AnimatedContainer Dot(int index, BuildContext context){
+
+  AnimatedContainer Dot(int index, BuildContext context) {
     return AnimatedContainer(
       duration: Duration(milliseconds: 500),
       curve: Curves.easeInOut,
@@ -164,7 +180,7 @@ class _OnBordingScreenState extends State<OnBordingScreen> {
       margin: EdgeInsets.only(right: 7),
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(20),
-        color: currentIndex == index ?   Color(0xFFFFFFFF): Colors.black26,
+        color: currentIndex == index ? Color(0xFFFFFFFF) : Colors.black26,
       ),
     );
   }

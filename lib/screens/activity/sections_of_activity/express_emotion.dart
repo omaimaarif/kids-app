@@ -26,16 +26,25 @@ class _ExpressEmotionsState extends State<ExpressEmotions> {
         ),
         MyListTile(
             pressedButton: () {
-              Navigator.of(context).pushNamed("spell");
+              Navigator.of(context).pushNamed("emotions");
             },
             height_image: 50,
             height_tile: 170,
-            ImageIconPath: "lib/assets/back_math.png",
-            subtile: "Emotion Fun",
-            tileName: "Emotions!"),
+            ImageIconPath: "lib/assets/heart.png",
+            subtile: "Mood Detector",
+            tileName: "How are u today?"),
         SizedBox(
           height: 20,
         ),
+        MyListTile(
+            pressedButton: () {
+              Navigator.of(context).pushNamed("facedetector");
+            },
+            height_image: 50,
+            height_tile: 170,
+            ImageIconPath: "lib/assets/heart.png",
+            subtile: "Mood Detector",
+            tileName: "How are u today?"),
         SizedBox(
           height: 20,
         ),
