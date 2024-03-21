@@ -39,16 +39,37 @@ class _boardState extends State<board> {
           Center(child: grid(number, onClick)),
           SizedBox(height: 60,),
 
-           Align(
-             alignment: Alignment.centerLeft,
-               child: ImageDisplay('lib/assets/for_activity/robot-with-heart.png')),
+      Row(children: [
+        Align(
+            alignment: Alignment.centerLeft,
+            child: ImageDisplay('lib/assets/for_activity/robot-with-heart.png')),
 
-          // ElevatedButton(onPressed: (){
-          //   checkWinner()
-          // },
-          //
-          //     child: Text("check"))
+        ElevatedButton(onPressed: (){
+          showDialog(
+              context: context,
+              builder: (context)=>AlertDialog(
 
+                  content: Column(
+                    mainAxisSize: MainAxisSize.min,
+
+                    children: [
+                      Text("Congratulation", style: TextStyle(
+                          fontSize: 24, fontWeight: FontWeight.bold,   color: Color(0xFF579D9A)
+                      ),),
+                      Center(
+                        child: Text("Now you can move to the second level", style: TextStyle(
+                            fontSize: 16, color: Colors.black54
+
+                        ),),
+                      )
+                    ],)
+
+              ) );
+        },
+
+            child: Text("          "))
+
+      ],)
 
 
         ],
@@ -83,15 +104,27 @@ class _boardState extends State<board> {
   void checkWinner(){
     bool isWinner=isShorted(number);
     if(isWinner){
-      AwesomeDialog(
+      showDialog(
           context: context,
-          dialogType: DialogType.success,
-          animType: AnimType.rightSlide,
-          title: 'congratulations',
-          desc: 'Now you can move to the second level',
-          btnCancelOnPress: () {},
-    btnOkOnPress: () {},
-    ).show();
+          builder: (context)=>AlertDialog(
+
+            content: Column(
+              mainAxisSize: MainAxisSize.min,
+
+              children: [
+              Text("Congratulations", style: TextStyle(
+                fontSize: 24, fontWeight: FontWeight.bold,   color: Color(0xFF579D9A)
+              ),),
+              Center(
+                child: Text("Now you can move to the second level", style: TextStyle(
+                  fontSize: 17, color: Colors.black54
+
+                ),),
+              )
+            ],)
+
+          ) );
+
 
     }
   }

@@ -249,13 +249,26 @@ class _activityScreenState extends State<activityScreen> {
 
                                             ],
                                           )
-                                        : Image(
-                                            image: AssetImage(
-                                                "lib/assets/for_activity/robot (9).png"),
-                                            alignment: Alignment.topRight,
-                                            height: 200,
-                                            width: 220,
-                                          ),
+                                        :Row(children: [
+                                      ElevatedButton(
+                                        onPressed: () {
+                                          Navigator.of(context).pushReplacement(
+                                              CupertinoPageRoute(builder: (ctx)=> const CategoryActivity()));
+                                        },
+                                        child: Text(
+                                          "Exit",
+                                          style: GoogleFonts.aBeeZee(
+                                              color: Color(0xFF1ECDDE)),
+                                        ),
+                                      ),
+                                      Image(
+                                        image: AssetImage(
+                                            "lib/assets/for_activity/robot (9).png"),
+                                        alignment: Alignment.topRight,
+                                        height: 200,
+                                        width: 220,
+                                      ),
+                                    ],)
                                   )
                                 ],
                               )

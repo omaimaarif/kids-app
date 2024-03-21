@@ -57,13 +57,11 @@ class GameController extends StateNotifier<GameState> {
     box2dController.reset(_read(Providers.puzzleController).puzzle);
     box2dController.makeItRain(loop: true);
   }
-
   void addOneSecondTimePenalty() {
     state = state.copyWith(
       currentTimePenalty: state.currentTimePenalty + const Duration(seconds: 1),
     );
   }
-
   void makeItRainAndSpeedUpTimer({bool loop = true}) {
     state = state.copyWith(
       currentTimePenalty:

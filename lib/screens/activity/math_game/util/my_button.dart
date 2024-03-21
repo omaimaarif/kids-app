@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import '../const.dart';
 
 class Button_for_math_game extends StatelessWidget {
@@ -37,7 +38,11 @@ class Button_for_math_game extends StatelessWidget {
           child: Center(
             child: Text(
               child,
-              style: whiteTextStyle,
+              style:GoogleFonts.aBeeZee(
+                fontWeight: FontWeight.bold,
+                fontSize: 32,
+                color: Colors.white,
+              )
             ),
           ),
         ),

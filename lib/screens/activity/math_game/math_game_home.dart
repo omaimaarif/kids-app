@@ -2,7 +2,8 @@ import 'dart:math';
 import 'package:another_final_kids_app/screens/activity/math_game/util/my_button.dart';
 import 'package:another_final_kids_app/screens/activity/math_game/util/result_message.dart';
 import 'package:flutter/material.dart';
-import 'const.dart';
+import 'package:google_fonts/google_fonts.dart';
+
 
 
 class MathGame extends StatefulWidget {
@@ -140,6 +141,7 @@ class _MathGameState extends State<MathGame> {
               // child: Image(image: AssetImage("lib/assets/for_activity/mathBack.png"),),
             ),
           ),
+          SizedBox(height: 20,),
 
           // question
           Expanded(
@@ -151,7 +153,11 @@ class _MathGameState extends State<MathGame> {
                     // question
                     Text(
                       numberA.toString() + ' + ' + numberB.toString() + ' = ',
-                      style: whiteTextStyle,
+                        style:GoogleFonts.aBeeZee(
+                          fontWeight: FontWeight.bold,
+                          fontSize: 32,
+                          color: Colors.white,
+                        )
                     ),
 
                     // answer box
@@ -165,7 +171,11 @@ class _MathGameState extends State<MathGame> {
                       child: Center(
                         child: Text(
                           userAnswer,
-                          style: whiteTextStyle,
+                           style:GoogleFonts.aBeeZee(
+                          fontWeight: FontWeight.bold,
+    fontSize: 32,
+    color: Colors.white,
+    )
                         ),
                       ),
                     ),

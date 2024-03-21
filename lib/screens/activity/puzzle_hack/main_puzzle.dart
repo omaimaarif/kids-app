@@ -2,6 +2,7 @@ import 'dart:async';
 import 'package:another_final_kids_app/screens/activity/puzzle_hack/screens/puzzle_page.dart';
 import 'package:another_final_kids_app/screens/activity/puzzle_hack/theme.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 
 
@@ -83,9 +84,10 @@ class _AppState extends State<App> {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      theme: widget.appTheme.darkTheme,
-      home:  PuzzlePage(),
+        debugShowCheckedModeBanner: false,
+        theme: widget.appTheme.darkTheme,
+        home:  PuzzlePage(),
+
     );
   }
 }

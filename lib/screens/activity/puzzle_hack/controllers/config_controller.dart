@@ -1,5 +1,4 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-
 import '../providers/providers.dart';
 import '../state/config_state.dart';
 

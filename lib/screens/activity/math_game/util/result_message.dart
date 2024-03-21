@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import '../const.dart';
 
 class ResultMessage extends StatelessWidget {
@@ -25,7 +26,11 @@ class ResultMessage extends StatelessWidget {
             // the result
             Text(
               message,
-              style: whiteTextStyle,
+                style:GoogleFonts.aBeeZee(
+                  fontWeight: FontWeight.normal,
+                  fontSize: 32,
+                  color: Colors.white,
+                )
             ),
 
             // button to go to next question
