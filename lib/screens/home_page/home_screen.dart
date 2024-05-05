@@ -139,7 +139,7 @@ class _MainScreenState extends State<MainScreen> {
                             color: Colors.grey),
                       ),
                       SizedBox(
-                        height: 10,
+                        height: 7,
                       ),
                       MyListTile(
                         height_image: 60,
@@ -153,7 +153,7 @@ class _MainScreenState extends State<MainScreen> {
                         },
                       ),
                       SizedBox(
-                        height: 10,
+                        height: 7,
                       ),
                       MyListTile(
                           pressedButton: () {
@@ -166,8 +166,22 @@ class _MainScreenState extends State<MainScreen> {
                           subtile: " let's paint here",
                           tileName: "Drawing"),
                       SizedBox(
+                        height: 7,
+                      ),
+
+                      MyListTile(
+                          pressedButton: () {
+                            Navigator.of(context).pushNamed("facedetector");
+                          },
+                          height_image: 60,
+                          height_tile: 120,
+                          ImageIconPath: "lib/assets/sadmood.png",
+                          subtile: "Mood Detector",
+                          tileName: "How are u today?"),
+                      SizedBox(
                         height: 5,
                       ),
+
                       Text(
                         "Chatterbox",
                         style: TextStyle(

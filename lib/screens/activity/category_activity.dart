@@ -17,7 +17,7 @@ class _CategoryActivityState extends State<CategoryActivity> {
   @override
   Widget build(BuildContext context) {
     return DefaultTabController(
-      length: 4,
+      length: 2,
       child: Scaffold(
         backgroundColor: Color(0xFFE9EDEE),
         appBar: AppBar(
@@ -43,13 +43,13 @@ class _CategoryActivityState extends State<CategoryActivity> {
 
                   labelStyle: TextStyle(
                     color: Colors.grey,
-                    fontSize: 20,
+                    fontSize: 25,
                   ),
-                  labelPadding: EdgeInsets.symmetric(horizontal: 20),
+                labelPadding: EdgeInsets.symmetric(horizontal: 25),
                   tabs: [
                     Tab(text:"Organize",),
                     Tab(text:"Education",),
-                    Tab(text:"Express Your Feelings",),
+                    // Tab(text:"Express Your Feelings",),
 
                   ],
 
@@ -62,7 +62,7 @@ class _CategoryActivityState extends State<CategoryActivity> {
                       children: [
                         SortAndDrag(),
                         EducationActivity(),
-                        ExpressEmotions(),
+                        // ExpressEmotions(),
                       ],
                     )),
               ],

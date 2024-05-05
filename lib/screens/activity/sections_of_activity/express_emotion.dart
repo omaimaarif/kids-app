@@ -23,15 +23,7 @@ class _ExpressEmotionsState extends State<ExpressEmotions> {
         ),
         SizedBox(
           height: 13,
-        ),  MyListTile(
-            pressedButton: () {
-              Navigator.of(context).pushNamed("facedetector");
-            },
-            height_image: 70,
-            height_tile: 170,
-            ImageIconPath: "lib/assets/happy.png",
-            subtile: "Mood Detector",
-            tileName: "How are u today?"),
+        ),
 
         SizedBox(
           height: 20,

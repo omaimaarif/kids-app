@@ -697,7 +697,7 @@ class _OptionsButtonState extends ConsumerState<_OptionsButton>
                     break;
                 }
                 return Text(
-                  'Geek 🛠',
+                  '  ',
                   style: TextStyle(
                     fontFamily: 'TitanOne',
                     fontSize: fontSize,
