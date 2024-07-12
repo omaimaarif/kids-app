@@ -5,30 +5,22 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 
 final _firestore =FirebaseFirestore.instance;
 late User signedInUser;
-
-
 class ChatScreen extends StatefulWidget {
   static const String screenRoute = 'chat_screen';
-
   const ChatScreen({Key? key}) : super(key: key);
 
   @override
   _ChatScreenState createState() => _ChatScreenState();
 }
-
 class _ChatScreenState extends State<ChatScreen> {
   final messageTextController= TextEditingController();
-
   final _auth = FirebaseAuth.instance;
-
   String? messageText;
-
   @override
   void initState() {
     super.initState();
     getCurrentUser();
   }
-
   void getCurrentUser() {
     try {
       final user = _auth.currentUser;
@@ -40,9 +32,6 @@ class _ChatScreenState extends State<ChatScreen> {
       print(e);
     }
   }
-
-
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(

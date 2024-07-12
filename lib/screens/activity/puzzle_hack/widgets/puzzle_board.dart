@@ -103,15 +103,12 @@ class ParticlePuzzleBoard extends ConsumerStatefulWidget {
   ConsumerState<ParticlePuzzleBoard> createState() =>
       _ParticlePuzzleBoardState();
 }
-
 class _ParticlePuzzleBoardState extends ConsumerState<ParticlePuzzleBoard>
     with SingleTickerProviderStateMixin {
   late final AnimationController animationController =
       AnimationController(vsync: this, duration: const Duration(seconds: 10));
 
   late final ValueNotifier<double> particlePixelSize;
-
-  // Box image data
   late Future<ui.Image> boxImage;
   late ByteData boxImageByteData;
   ui.Image? cachedBoxImage;

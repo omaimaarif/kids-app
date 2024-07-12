@@ -22,19 +22,13 @@ class GameState extends Equatable {
     this.totalTimePenalty = 0,
   });
 
-  /// The game state status.
   final GameStateStatus gameStateStatus;
 
-  /// The amount of time this game has lasted.
   final int gameTime;
-
   final Duration currentTimePenalty;
-
   final int totalTimePenalty;
-
   @override
   List<Object> get props => [gameStateStatus, gameTime];
-
   GameState copyWith({
     GameStateStatus? gameStateStatus,
     int? gameTime,
