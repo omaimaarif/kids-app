@@ -45,7 +45,6 @@ class CanvasSideBar extends HookWidget {
     required this.polygonSides,
     required this.backgroundImage,
   }) : super(key: key);
-
   @override
   Widget build(BuildContext context) {
     final undoRedoStack = useState(_UndoRedoStack(

@@ -32,7 +32,7 @@ class _WelcomToArtSectionState extends State<WelcomToArtSection> {
             Column(
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
-                SizedBox(height: 180,),
+                SizedBox(height: 100,),
 
                 Text("Start your artistic adventure\n And enjoy your time in the world of colors",
                   textAlign: TextAlign.center,
@@ -43,16 +43,16 @@ class _WelcomToArtSectionState extends State<WelcomToArtSection> {
 
                 SizedBox(height: 150,),
                 Image(image: AssetImage("lib/assets/images_paint/drawing (3).png"),
-                  width: 270,
+                  width: 240,
                   alignment: Alignment.bottomCenter,),
               ],
             ),
 
-            SizedBox(height: 50,),
+            SizedBox(height: 20,),
             SpinKitWanderingCubes
               (
               color: Color(0xFFEABE7B),
-              size: 50.0,
+              size: 20.0,
               duration: Duration(milliseconds: 2000),
             ),
           ],

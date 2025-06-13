@@ -47,7 +47,7 @@ class _DragDropState extends State<DragDrop> {
               color: Colors.blueGrey)
         ),
         SizedBox(
-          height: 40,
+          height: 20,
         ),
         Wrap(
           alignment: WrapAlignment.center,
@@ -73,7 +73,7 @@ class _DragDropState extends State<DragDrop> {
                   )),
         ),
         const SizedBox(
-          height: 40,
+          height: 20,
         ),
         Divider(
           thickness: 1, // thickness of the line
@@ -83,7 +83,7 @@ class _DragDropState extends State<DragDrop> {
           height: 10,
         ),
         const SizedBox(
-          height: 40,
+          height: 20,
         ),
         Wrap(
           alignment: WrapAlignment.center,
@@ -109,7 +109,7 @@ class _DragDropState extends State<DragDrop> {
                   )),
         ),
         const SizedBox(
-          height: 70,
+          height: 40,
         ),
         ElevatedButton(
           onPressed: () {

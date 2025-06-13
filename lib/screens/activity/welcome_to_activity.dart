@@ -32,7 +32,7 @@ body: SizedBox(
       Column(
 crossAxisAlignment: CrossAxisAlignment.center,
         children: [
-          SizedBox(height: 180,),
+          SizedBox(height: 100,),
 
           Text("Enter a realm of fun and delight, waiting just seconds away..",
             textAlign: TextAlign.center,
@@ -52,11 +52,11 @@ crossAxisAlignment: CrossAxisAlignment.center,
         ],
       ),
 
-      SizedBox(height: 50,),
+      SizedBox(height: 20,),
      SpinKitWanderingCubes
         (
        color: Color(0xFFEABE7B),
-       size: 50.0,
+       size: 20.0,
        duration: Duration(milliseconds: 2000),
 
       ),

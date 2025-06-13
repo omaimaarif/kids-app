@@ -26,7 +26,7 @@ class _boardState extends State<board> {
     return Scaffold(
       body: Column(
         children: [
-          SizedBox(height: 60,),
+          SizedBox(height: 10,),
           Text(numberOfMoves.toString()+" Moves | 8 Tiles",
             style:GoogleFonts.courgette(
                 color: Color(0xFF579D9A),

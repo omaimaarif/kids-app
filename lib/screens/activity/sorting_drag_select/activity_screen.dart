@@ -117,7 +117,7 @@ class _activityScreenState extends State<activityScreen> {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 SizedBox(
-                  height: 25,
+                  height: 2,
                 ),
                 _question.length <= counter
                     ? Column(
